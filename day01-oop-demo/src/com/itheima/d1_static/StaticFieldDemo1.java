@@ -6,6 +6,11 @@ public class StaticFieldDemo1 {
         // 访问：类名.静态成员变量
         System.out.println(User.onlineNumber);
 
+        // 对象名.静态成员变量
+        // 官方不推荐
+        User u = new User();
+        u.onlineNumber++; // 新来了一个人。
+        System.out.println(u.onlineNumber);
     }
 
 }
