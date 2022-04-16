@@ -8,6 +8,11 @@ import java.util.Random;
 public class ItheimaUtil {
 
     /**
+        由于工具类无需创建对象，所以其构造器私有化会显得比较专业！
+     */
+    private ItheimaUtil(){
+    }
+    /**
         静态方法
      */
     public static String createVerifyCode(int n){
