@@ -30,9 +30,14 @@ public class Student {
 
 //        study(); // 报错
 
+        // 2. 对象.实例方法
         Student s = new Student();
         s.name = "小明";
         s.study();
+
+        // 3. 对象.静态方法
+        // 语法上可以，但不推荐
+        System.out.println(s.getMax(2, 44));
     }
 
 }
