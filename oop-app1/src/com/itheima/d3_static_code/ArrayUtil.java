@@ -1,4 +1,4 @@
-package com.itheima.d3_static_test;
+package com.itheima.d3_static_code;
 
 /**
     练习：完成数组的工具类的设计
