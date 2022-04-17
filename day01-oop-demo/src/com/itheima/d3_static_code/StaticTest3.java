@@ -19,9 +19,25 @@ public class StaticTest3 {
         String[] sizes = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "k"};
         // b. 定义一个数组存储全部花色，类型确定了，个数确定了。
         String[] colors = {"♥", "♠", "♦", "♣"};
+        // c. 遍历点数
+        for (int i = 0; i < sizes.length; i++) {
+            // sizes[i]
+            // d. 遍历花色
+            for (int j = 0; j < colors.length; j++) {
+                // colors[j]
+                // 一张牌
+                String cars = sizes[i] + colors[j];
+                cards.add(cars);
+
+            }
+        }
+        // e. 单独加入大小王
+        cards.add("大♛");
+        cards.add("小♛");
     }
 
     public static void main(String[] args) {
         //目标：模块游戏启动前，初始化54张牌数据。
+        System.out.println("新牌：" + cards);
     }
 }
