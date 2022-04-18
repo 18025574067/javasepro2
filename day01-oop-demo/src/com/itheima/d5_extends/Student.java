@@ -1,4 +1,7 @@
 package com.itheima.d5_extends;
 
-public class Student {
+/**
+    学生类：子类
+ */
+public class Student extends People{
 }
