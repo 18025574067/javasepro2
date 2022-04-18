@@ -28,7 +28,6 @@ public class StaticTest3 {
                 // 一张牌
                 String cars = sizes[i] + colors[j];
                 cards.add(cars);
-
             }
         }
         // e. 单独加入大小王
