@@ -39,15 +39,21 @@ import java.util.Map;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution_fib {
-    private Map<Integer, Integer> map = new HashMap<>();
-    public int fib(int n) {
+    public static void main(String[] args) {
+        System.out.println(fib(2));
+    }
+    private static Map<Integer, Integer> map = new HashMap<>();
+    private static int fib(int n) {
         // 递归解法
         if (n == 0) return 0;
         if (n == 1) return 1;
-
-
-        return
-
+        if (null != map.get(n))
+            return map.get(n);
+        else {
+            int result = fib(n-1) + fib(n-2);
+            map.put(n, result);
+            return result;
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -34,10 +34,17 @@
 // Related Topics 记忆化搜索 数学 动态规划 👍 2377 👎 0
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution_climbStairs {
-    //    private Map<Integer, Integer> maps = new HashMap<>();
-//    public int climbStairs(int n) {
+public class Solution_climbStairs {
+    public static void main(String[] args) {
+        System.out.println(climbStairs(4));
+    }
+
+//    private static Map<Integer, Integer> maps = new HashMap<>();
+//    private static int climbStairs(int n) {
 //        // 递归解法
 //        if (n == 1) return 1;
 //        if (n == 2) return 2;
@@ -49,7 +56,9 @@ class Solution_climbStairs {
 //            return result;
 //        }
 //    }
-    public int climbStairs(int n) {
+
+
+    private static int climbStairs(int n) {
         if (n == 1) return 1;
         if (n == 2) return 2;
         int per = 2;
