@@ -40,7 +40,7 @@ import java.util.Map;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution_fib {
     public static void main(String[] args) {
-        System.out.println(fib(2));
+        System.out.println(fib(45));
     }
     private static Map<Integer, Integer> map = new HashMap<>();
     private static int fib(int n) {
