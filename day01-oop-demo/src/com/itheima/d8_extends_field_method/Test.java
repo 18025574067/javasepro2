@@ -34,5 +34,8 @@ class Dog extends Animal{
         System.out.println(name);
         System.out.println(this.name);
         System.out.println(super.name);
+
+        run();
+        super.run();
     }
 }
