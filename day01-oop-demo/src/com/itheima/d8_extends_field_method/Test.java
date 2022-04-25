@@ -35,7 +35,7 @@ class Dog extends Animal{
         System.out.println(this.name);
         System.out.println(super.name);
 
-        run();
-        super.run();
+        run(); // 找子类的方法
+        super.run(); // 找父类的方法。
     }
 }
