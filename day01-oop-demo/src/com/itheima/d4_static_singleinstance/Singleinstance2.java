@@ -1,8 +1,6 @@
 package com.itheima.d4_static_singleinstance;
 
-/**
-    懒汉单例
- */
+/**懒汉单例*/
 
 public class Singleinstance2 {
     /**
@@ -10,7 +8,6 @@ public class Singleinstance2 {
         只加载一次，只有一份。
         最好进行私有化，避免给别人挖坑。
      */
-//    public static Singleinstance2 instance;
     private static Singleinstance2 instance;
 
     /**
@@ -24,11 +21,7 @@ public class Singleinstance2 {
         return instance;
     }
 
-
     // 1. 把构造器私有化
     private Singleinstance2(){
     }
-
-
-
 }
