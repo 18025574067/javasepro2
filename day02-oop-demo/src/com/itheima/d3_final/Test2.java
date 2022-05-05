@@ -8,7 +8,7 @@ public class Test2 {
     public static final String schoolName = "黑马";
 
     /**
-        三、修饰实例成员变量
+        三、修饰实例成员变量 (几乎不用)
      */
     private final String name = "猪八戒";
 
@@ -30,10 +30,29 @@ public class Test2 {
 
         Test2 t = new Test2();
         System.out.println(t.name);
+//        t.name = "天蓬元帅";
+
+        // 注意：final 修饰引用类型的变量 ，其指向的地址值不能改变，但其指向对象的内容可以发生改变。
+        Teacher t2 = new Teacher("学习", "授课", "吹吹水");
 
 
     }
     public static void buy(final double a){
 //        a = 0.1; // 第二次赋值了。
+    }
+}
+
+class Teacher{
+    private String hobby;
+
+    public Teacher(String 学习, String 授课, String 吹吹水) {
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 }
