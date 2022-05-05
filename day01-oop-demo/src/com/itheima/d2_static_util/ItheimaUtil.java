@@ -5,7 +5,8 @@ import java.util.Random;
 /**
     工具类
  */
-public class ItheimaUtil {
+// final 修饰的类不能被继承。
+public final class ItheimaUtil {
 
     /**
         由于工具类无需创建对象，所以其构造器私有化会显得比较专业！
