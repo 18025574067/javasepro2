@@ -34,6 +34,7 @@ public class Test2 {
 
         // 注意：final 修饰引用类型的变量 ，其指向的地址值不能改变，但其指向对象的内容可以发生改变。
         final Teacher t2 = new Teacher("学习，授课，吹吹水");
+        System.out.println(t2.getHobby());
 //        t2 = null;
         t2.setHobby("运动");
         System.out.println(t2.getHobby());
@@ -46,15 +47,20 @@ public class Test2 {
 }
 
 class Teacher{
+    // 私有化成员变量
     private String hobby;
 
+    // 有参构造器
     public Teacher(String hobby) {
+        this.hobby = hobby;
     }
 
+    // getter方法
     public String getHobby() {
         return hobby;
     }
 
+    // setter方法
     public void setHobby(String hobby) {
         this.hobby = hobby;
     }
