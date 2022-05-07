@@ -1,6 +1,6 @@
 package com.itheima.d4_constant;
 
-public class ConstantDemo {
+public class ConstantDemo1 {
     public static final String SCHOOL_NAME = "传智集团";
     public static final String USER_NAME = "admin";
     public static final String PASS_WORD = "123456";
