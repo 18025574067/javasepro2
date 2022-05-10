@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
     目标：常量的其他作用，做信息标志和信息分类（其实也是一种配置形式）
  */
 public class ConstantDemo2 {
-
     public static final int UP = 1;
     public static final int DOWN = 2;
     public static final int LEFT = 3;
@@ -38,49 +37,43 @@ public class ConstantDemo2 {
         btn1.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(UP); // 让玛丽向上跳
+//                move(11111);
+                move(UP);
             }
         });
         btn2.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(DOWN); // 让玛丽向下蹲
-
+                move(ConstantDemo2.DOWN);
             }
         });
         btn3.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(LEFT); // 让玛丽向左跑
-
+                move(LEFT);
             }
         });
         btn4.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(RIGHT); // 让玛丽向右跑
-
+                move(RIGHT);
             }
         });
     }
-
     public static void move(int flag){
-        // 控制玛丽移动
         switch (flag){
             case UP:
-                System.out.println("玛丽向上跳了一下～～～");
+                System.out.println("玛丽向上跳了一下~~~~~~");
                 break;
             case DOWN:
-                System.out.println("玛丽向下蹲了一下～～～");
+                System.out.println("玛丽向下蹲了一下~~~~~~");
                 break;
             case LEFT:
-                System.out.println("玛丽向左跑～～～");
+                System.out.println("玛丽向左跑~~~~~~");
                 break;
             case RIGHT:
-                System.out.println("玛丽向右跑～～～");
+                System.out.println("玛丽向右跑~~~~~~");
                 break;
         }
-
-
     }
 }

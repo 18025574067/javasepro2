@@ -8,11 +8,6 @@ import java.awt.event.ActionEvent;
  */
 public class EnumDemo2 {
 
-    public static final int UP = 1;
-    public static final int DOWN = 2;
-    public static final int LEFT = 3;
-    public static final int RIGHT = 4;
-
     public static void main(String[] args) {
         // 1. 创建一个窗口对象（桌子）
         JFrame win = new JFrame();
@@ -38,49 +33,42 @@ public class EnumDemo2 {
         btn1.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(UP); // 让玛丽向上跳
+                move(Orientation.UP);
             }
         });
         btn2.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(DOWN); // 让玛丽向下蹲
-
+                move(Orientation.DOWN);
             }
         });
         btn3.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(LEFT); // 让玛丽向左跑
-
+                move(Orientation.LEFT);
             }
         });
         btn4.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(RIGHT); // 让玛丽向右跑
-
+                move(Orientation.RIGHT);
             }
         });
     }
-
-    public static void move(int flag){
-        // 控制玛丽移动
-        switch (flag){
+    public static void move(Orientation o){
+        switch (o){
             case UP:
-                System.out.println("玛丽向上跳了一下～～～");
+                System.out.println("玛丽向上跳了一下~~~~~~");
                 break;
             case DOWN:
-                System.out.println("玛丽向下蹲了一下～～～");
+                System.out.println("玛丽向下蹲了一下~~~~~~");
                 break;
             case LEFT:
-                System.out.println("玛丽向左跑～～～");
+                System.out.println("玛丽向左跑~~~~~~");
                 break;
             case RIGHT:
-                System.out.println("玛丽向右跑～～～");
+                System.out.println("玛丽向右跑~~~~~~");
                 break;
         }
-
-
     }
 }
