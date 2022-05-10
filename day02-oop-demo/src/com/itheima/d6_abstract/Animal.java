@@ -6,7 +6,7 @@ package com.itheima.d6_abstract;
 public abstract class Animal {
 
     /**
-        抽象方法：有abstract修饰，不能写方法体代码！
+        抽象方法：有abstract修饰，只有方法签名，不能写方法体代码！
      */
     public abstract void run();
 }
