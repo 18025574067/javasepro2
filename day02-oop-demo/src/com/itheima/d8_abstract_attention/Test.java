@@ -12,6 +12,20 @@ public class Test {
         // Animal a = new Animal(); a.run(), 连方法体都没有怎么跑？
         // 因此抽象类不能创建对象。
 
+        // Card c = new Card();
+        // 抽象类不能创建对象（这个观点不能动摇）
+    }
+}
+
+abstract class Card{
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
