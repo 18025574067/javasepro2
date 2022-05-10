@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 /**
     目标：常量的其他作用，做信息标志和信息分类（其实也是一种配置形式）
  */
-public class EnumDemo2 {
+public class EnumDemo {
 
     public static void main(String[] args) {
         // 1. 创建一个窗口对象（桌子）
