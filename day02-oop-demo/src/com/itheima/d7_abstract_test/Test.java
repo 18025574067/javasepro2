@@ -9,7 +9,10 @@ package com.itheima.d7_abstract_test;
 public class Test {
     public static void main(String[] args) {
         // 目标：学习抽象类的基本使用：做父类，被继承，重写父类方法。
-
+        GoldCard g = new GoldCard();
+        g.setCardName("英斌");
+        g.setMoney(10000);
+        g.pay(300);
 
 
     }

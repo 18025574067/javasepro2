@@ -8,7 +8,7 @@ public abstract class Card {
         定义一个支付功能
         抽象方法。
      */
-    public abstract void buy(double money);
+    public abstract void pay(double money);
 
     public String getCardName() {
         return cardName;
