@@ -13,6 +13,6 @@ public class GoldCard extends Card{
 
         // 更新账户余额
         setMoney(getMoney() - rs);
-        System.out.println("现在余额为：" + getMoney());
+
     }
 }

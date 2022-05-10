@@ -13,6 +13,7 @@ public class Test {
         g.setCardName("英斌");
         g.setMoney(10000);
         g.pay(300);
+        System.out.println("剩余：" + g.getMoney());
 
 
     }
