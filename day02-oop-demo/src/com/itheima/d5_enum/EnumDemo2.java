@@ -1,4 +1,4 @@
-package com.itheima.d4_constant;
+package com.itheima.d5_enum;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 /**
     目标：常量的其他作用，做信息标志和信息分类（其实也是一种配置形式）
  */
-public class ConstantDemo2 {
+public class EnumDemo2 {
 
     public static final int UP = 1;
     public static final int DOWN = 2;
