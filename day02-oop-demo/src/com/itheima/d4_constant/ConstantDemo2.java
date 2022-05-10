@@ -43,7 +43,7 @@ public class ConstantDemo2 {
         btn2.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(DOWN);
+                move(ConstantDemo2.DOWN);
             }
         });
         btn3.addActionListener(new AbstractAction() {
