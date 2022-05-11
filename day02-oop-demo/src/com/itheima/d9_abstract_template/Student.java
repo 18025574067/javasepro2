@@ -5,7 +5,9 @@ public abstract class Student {
     /**
         正式：声明了模板方法模式
      */
-    public void write(){
+//    public void write(){
+    // 建议模板方法final 修饰，防止被重写，这样更专业，更安全。
+    public final void write(){
         System.out.println("\t\t\t我的爸爸");
         System.out.println("您的爸爸怎么样，一起来说说：");
 
