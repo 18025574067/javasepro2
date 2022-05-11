@@ -29,7 +29,6 @@ abstract class Card{
     }
 }
 
-
 abstract class Cat extends Animal{
 
     @Override
