@@ -9,6 +9,15 @@ public interface SportManInter {
     public default void run(){
         System.out.println("跑得很快~~~~");
     }
+
+    /**
+        2. 静态方法
+        必须由 static 修饰，默认用 public 修饰。
+        接口的静态方法，只能接口名自己调用的。
+     */
+    public static void inAddr(){
+        System.out.println("我们都在学习JAVA 新增方法的语法，它是JAVA 源码会用到的~~~~~");
+    }
 }
 
 class PingPongMan implements SportManInter{}
@@ -16,6 +25,9 @@ class PingPongMan implements SportManInter{}
 class Test{
     public static void main(String[] args) {
         PingPongMan p = new PingPongMan();
+        SportManInter.inAddr();
         p.run();
+
+//        PingPongMan.inAddr();
     }
 }
