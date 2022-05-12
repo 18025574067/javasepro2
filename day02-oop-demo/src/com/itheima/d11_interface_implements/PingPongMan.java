@@ -3,7 +3,7 @@ package com.itheima.d11_interface_implements;
 /**
     实现类
  */
-public class PingPongMan implements SportMan{
+public class PingPongMan implements SportMan, Law{
     private String name;
 
     public PingPongMan(String name) {
@@ -18,5 +18,10 @@ public class PingPongMan implements SportMan{
     @Override
     public void competition() {
         System.out.println(name + "要参加比赛，为国争光！！！");
+    }
+
+    @Override
+    public void rule() {
+        System.out.println(name + "必须守法。。。");
     }
 }
