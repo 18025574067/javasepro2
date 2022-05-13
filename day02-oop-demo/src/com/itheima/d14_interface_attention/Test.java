@@ -3,6 +3,7 @@ package com.itheima.d14_interface_attention;
 public class Test {
     public static void main(String[] args) {
         // 接口的注意事项：
+
         // 1. 接口不能创建对象（接口更加彻底的抽象！）
 
         // 2. 一个类实现多个接口，多个接口中有同样的静态方法不冲突。
