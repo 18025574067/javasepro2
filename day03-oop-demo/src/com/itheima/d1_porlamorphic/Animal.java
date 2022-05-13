@@ -1,4 +1,5 @@
 package com.itheima.d1_porlamorphic;
 
-public class Animal {
+public abstract class Animal {
+    public abstract void run();
 }
