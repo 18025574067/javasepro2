@@ -1,4 +1,4 @@
-package com.itheima.d1_porlamorphic;
+package com.itheima.d1_polyamorphic;
 
 /**
     认识多态，理解多态的形式，和概念。
@@ -15,6 +15,5 @@ public class Test {
         Animal a2 = new Tortoise();
         a2.run();
         System.out.println(a2.name);
-
     }
 }

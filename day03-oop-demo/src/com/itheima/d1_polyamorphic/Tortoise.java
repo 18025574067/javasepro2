@@ -1,4 +1,4 @@
-package com.itheima.d1_porlamorphic;
+package com.itheima.d1_polyamorphic;
 
 public class Tortoise extends Animal{
     public String name = "子类乌龟";
