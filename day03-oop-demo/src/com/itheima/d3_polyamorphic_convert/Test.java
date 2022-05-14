@@ -11,7 +11,7 @@ public class Test {
         // 强制类型转换。
         Animal a2 = new Tortoise();
         a2.run();
-        Tortoise t2 = a2;
-        a2.LayEggs();
+//        Tortoise t2 = a2;
+//        a2.LayEggs();
     }
 }
