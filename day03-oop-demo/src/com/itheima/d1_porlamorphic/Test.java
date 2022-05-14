@@ -14,6 +14,7 @@ public class Test {
 //        Tortoise a2 = new Tortoise();
         Animal a2 = new Tortoise();
         a2.run();
+        System.out.println(a2.name);
 
     }
 }
