@@ -14,6 +14,16 @@ public class Computer {
         // 多态：父态作为接口入参，所有实现类都能进来
         // usb, 可能是鼠标，也可能是键盘。
         usb.connect();
+        // 独有功能
+        if (usb instanceof KeyBoard){
+            KeyBoard k = (KeyBoard) usb;
+            k.KeyDown();
+        }else if (usb instanceof Mouse){
+            Mouse m = (Mouse) usb;
+            m.dbClick();
+        }
+
+        usb.unconnect();
     }
 
     public String getName() {
