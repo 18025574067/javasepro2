@@ -4,6 +4,11 @@ package com.itheima.d5_innerclass_static;
     外部类
  */
 public class Outer {
+
+    // 外部类静态成员，内部类可以直接访问
+    public static int a = 100;
+    // 实例成员只能用对象来访问
+    private String hobby;
     /**
         学习静态成员内部类
      */
@@ -14,6 +19,11 @@ public class Outer {
 
         public void show(){
             System.out.println("姓名：" + name);
+            System.out.println(a);
+            // System.out.println(hobby); // 外部实例成员只能用对象访问
+            // 间接访问
+            Outer o = new Outer();
+            System.out.println(o.hobby);
         }
 
         public Inter(){}
