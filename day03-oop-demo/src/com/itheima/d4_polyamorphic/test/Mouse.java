@@ -24,12 +24,12 @@ public class Mouse implements USB{
 
     @Override
     public void connect() {
-        System.out.println("成功地链接到电脑。。。。");
+        System.out.println(name +"成功地链接到电脑。。。。");
     }
 
     @Override
     public void unconnect() {
-        System.out.println("成功从电脑拔出了。。。。");
+        System.out.println(name + "成功从电脑拔出了。。。。");
     }
 }
 

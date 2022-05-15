@@ -7,6 +7,10 @@ public class Computer {
         this.name = name;
     }
 
+    public void start(){
+        System.out.println(name + "开机了。。。。");
+    }
+
     /**
         提供安装USB设备的入口
      */

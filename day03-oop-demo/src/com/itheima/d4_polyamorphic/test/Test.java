@@ -8,6 +8,17 @@ package com.itheima.d4_polyamorphic.test;
  */
 public class Test {
     public static void main(String[] args) {
-        //
+        // a. 创建电脑对象
+        Computer c = new Computer("外星人");
+        c.start();
+        System.out.println("-------------------");
+
+        // b. 创建鼠标对象，键盘对象
+        USB u = new Mouse("双飞燕");
+        c.installUSB(u);
+        System.out.println("=========================");
+        USB u2 = new KeyBoard("罗技");
+        c.installUSB(u2);
+
     }
 }
