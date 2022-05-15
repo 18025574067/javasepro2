@@ -14,10 +14,10 @@ public class Test {
         System.out.println("-------------------");
 
         // b. 创建鼠标对象，键盘对象
-        USB u = new Mouse("双飞燕");
+        USB u = new Mouse("罗技鼠标");
         c.installUSB(u);
         System.out.println("=========================");
-        USB u2 = new KeyBoard("罗技");
+        USB u2 = new KeyBoard("双飞燕键盘");
         c.installUSB(u2);
 
     }
