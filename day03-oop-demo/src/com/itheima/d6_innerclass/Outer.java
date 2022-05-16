@@ -4,6 +4,16 @@ package com.itheima.d6_innerclass;
     外部类
  */
 public class Outer {
+    public static int num = 111;
+    private String hobby;
+
+    public Outer(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public Outer() {
+    }
+
     /**
         成员内部类：不能加 static 修饰，属于外部类对象的。
      */
@@ -18,6 +28,8 @@ public class Outer {
 
         public void show(){
             System.out.println("名称："+ name);
+            System.out.println("数量：" + num);
+            System.out.println("爱好：" + hobby);
         }
 
         public String getName() {
