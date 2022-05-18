@@ -35,7 +35,12 @@ public class Student extends Object{
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                '}';
     }
 }

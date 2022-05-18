@@ -8,5 +8,6 @@ public class Test1 {
         Student s = new Student("周雄", '男', 19);
 //        System.out.println(s.toString()); // 直接输出对象变量，默认可以省略toString调用不写。
         System.out.println(s);
+        System.out.println(s.toString());
     }
 }
