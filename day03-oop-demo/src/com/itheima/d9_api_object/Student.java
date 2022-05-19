@@ -37,34 +37,42 @@ public class Student extends Object{
         return age;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Student student = (Student) o;
-//        return sex == student.sex && age == student.age && Objects.equals(name, student.name);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        // 1.判断是否是同一个对象比较，如果是返回true.
+        if (this == o) return true;
+        // 2. 如果o是null返回false 如果o不是学生类型返回false ...student != ..Pig.
+        if (o == null || this.getClass() != o.getClass()) return false;
+        // 3. 说明o一定是学生类型而且不为null.
+        Student student = (Student) o;
+        return this.sex == student.sex && this.age == student.age && Objects.equals(name, student.name);
+    }
 
     /**
      自己重写equals方法，自己定制相同规则，
      两个对象内容相同就认为相同。
+     s1.equals(s2)
+     比较者：s1 == this
+     被比较者：s2 == o
      */
-    @Override
-    public boolean equals(Object o){
-        // 1. 判断o 是不是学生类型
-        if (o instanceof Student){
-            Student s2 = (Student) o;
-            // 2. 判断两个学生内容是否相同
-//            if (this.name.equals(s2.name) && this.age == s2.age && this.sex == s2.sex){
-//                return true;
-//            }else {return false;}
-
-            return this.name.equals(s2.name) && this.age == s2.age
-                    && this.sex == s2.sex;
-        }else{
-            // 学生类只能和学生类比较，否则结果一定是false。
-            return false;}
-    }
+//    @Override
+//    public boolean equals(Object o){
+//        // 1. 判断o 是不是学生类型
+//        if (o instanceof Student){
+//            Student s2 = (Student) o;
+//            // 2. 判断两个学生内容是否相同
+////            if (this.name.equals(s2.name) && this.age == s2.age
+////               && this.sex == s2.sex){
+////                return true;
+////            }else {return false;}
+//
+//            return this.name.equals(s2.name) && this.age == s2.age
+//                    && this.sex == s2.sex;
+//        }else{
+//            // 学生只能和学生比较，否则结果一定是false。
+//            return false;
+//        }
+//    }
 
 //
 //    @Override
