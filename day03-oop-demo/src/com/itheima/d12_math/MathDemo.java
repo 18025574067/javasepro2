@@ -18,5 +18,12 @@ public class MathDemo {
         System.out.println(Math.round(4.54444444444444)); // 5
         // 6. 0.1-1.0的随机小数
         System.out.println(Math.random());
+
+        // 随机生成3-9的随机数
+        // (0-7) + 3
+        for (int i = 0; i < 20; i++) {
+            int data =  (int)((Math.random() * 7 + 3));
+            System.out.println(data);
+        }
     }
 }
