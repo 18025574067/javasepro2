@@ -1,6 +1,7 @@
 package com.itheima.d14_bigdecimal;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class BigDecimalDemo {
     public static void main(String[] args) {
@@ -32,7 +33,10 @@ public class BigDecimalDemo {
         // 注意：BigDecimal一定要精度计算的。
         BigDecimal a11 = BigDecimal.valueOf(10.0);
         BigDecimal b11 = BigDecimal.valueOf(3.0);
-        BigDecimal c11 = a11.divide(b11);
+        /**
+            参数一：除数，参数二：保留小数位数，参数三：舍入模式。
+         */
+        BigDecimal c11 = a11.divide(b11, 2, RoundingMode.HALF_UP);
         System.out.println(c11);
 
 
