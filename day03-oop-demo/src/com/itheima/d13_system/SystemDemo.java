@@ -2,18 +2,12 @@ package com.itheima.d13_system;
 
 import java.util.Arrays;
 
-/**
-    参数三：目标数组
-    参数四：赋值到目标数组的哪个位置
-    参数五：赋值几个。
- */
 public class SystemDemo {
     public static void main(String[] args) {
         System.out.println("程序开始。。。");
 //         System.exit(0); // JVM终止。
-        // 1s = 1000ms
-
         // 2. 计算机认为时间有起源：返回1970-1-1 00:00:00 直到此刻的总的毫秒值。
+        // 1s = 1000ms
         long time = System.currentTimeMillis();
         System.out.println(time);
 
@@ -24,7 +18,6 @@ public class SystemDemo {
         }
         long endTime = System.currentTimeMillis();
         System.out.println((endTime-startTime)/1000.0 + "s");
-
 
         // 3. 做数组拷贝（了解）
         /**

@@ -1,5 +1,7 @@
 package com.itheima.d14_bigdecimal;
 
+import java.math.BigDecimal;
+
 public class BigDecimalDemo {
     public static void main(String[] args) {
         // 浮点型运算的时候直接+-*/可能会出现数据失真（精度问题）。
@@ -15,6 +17,25 @@ public class BigDecimalDemo {
         System.out.println("-----------------------------------");
 
         // 包装浮点型数据成为大数据对象
+        BigDecimal a1 = BigDecimal.valueOf(a);
+        BigDecimal b1 = BigDecimal.valueOf(b);
+        BigDecimal c1 = a1.add(b1);
+//        BigDecimal c1 = a1.subtract(b1);
+//        BigDecimal c1 = a1.multiply(b1);
+//        BigDecimal c1 = a1.divide(b1);
+        System.out.println(c1);
+
+        // 目的：double类型。
+        double rs = c1.doubleValue();
+        System.out.println(rs);
+
+        // 注意：BigDecimal一定要精度计算的。
+        BigDecimal a11 = BigDecimal.valueOf(10.0);
+        BigDecimal b11 = BigDecimal.valueOf(3.0);
+        BigDecimal c11 = a11.divide(b11);
+        System.out.println(c11);
+
+
         System.out.println("-------------------------------");
     }
 }
