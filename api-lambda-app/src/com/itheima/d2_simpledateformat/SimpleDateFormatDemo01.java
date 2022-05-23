@@ -16,7 +16,12 @@ public class SimpleDateFormatDemo01 {
         System.out.println(d);
 
         // 2. 格式化日期对象
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd: HH-mm-ss");
+//        2001-07-04 12:08:56
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss EEE a");
+        // 3. 开始格式化日期对象成为喜欢的字符串格式
         System.out.println(sdf.format(d));
+        System.out.println("=============================");
+        // 4. 格式化毫秒值
+
     }
 }
