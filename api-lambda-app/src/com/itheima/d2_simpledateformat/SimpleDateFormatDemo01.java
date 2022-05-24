@@ -16,12 +16,23 @@ public class SimpleDateFormatDemo01 {
         System.out.println(d);
 
         // 2. 格式化日期对象
-//        2001-07-04 12:08:56
+//        2022年05月24日  22:29:43 Tue PM
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日  HH:mm:ss EEE a");
+
         // 3. 开始格式化日期对象成为喜欢的字符串格式
         System.out.println(sdf.format(d));
         System.out.println("=============================");
-        // 4. 格式化毫秒值
+
+        // 4. 格式化时间毫秒值
+        // 需求：请问121秒后的时间是多少？
+        long time = System.currentTimeMillis() + 121*1000;
+        String rs = sdf.format(time);
+        System.out.println(rs);
+
+//        long time1 = time + 121*1000;
+//        String rs1 = sdf.format(time1);
+//        System.out.println(rs1);
+
 
     }
 }
