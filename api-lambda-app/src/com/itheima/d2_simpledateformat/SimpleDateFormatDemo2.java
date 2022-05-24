@@ -19,9 +19,10 @@ public class SimpleDateFormatDemo2 {
         Date date = sdf.parse(dateStr);
 
         // 3. 往后走2天14小时49分06秒
-        Date date1 = date + (2L*24*60*60 + 14*60*60 + 49*60 + 6) * 1000;
+        long time = date.getTime() + (2L*24*60*60 + 14*60*60 + 49*60 + 6) * 1000;
 
         // 4. 格式化这个时间毫秒值就是结果
+        System.out.println(sdf.format(time));
 
 
     }
