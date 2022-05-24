@@ -21,6 +21,7 @@ public class SimpleDateFormatDemo01 {
 
         // 3. 开始格式化日期对象成为喜欢的字符串格式
         System.out.println(sdf.format(d));
+        
         System.out.println("=============================");
 
         // 4. 格式化时间毫秒值
@@ -28,11 +29,6 @@ public class SimpleDateFormatDemo01 {
         long time = System.currentTimeMillis() + 121*1000;
         String rs = sdf.format(time);
         System.out.println(rs);
-
-//        long time1 = time + 121*1000;
-//        String rs1 = sdf.format(time1);
-//        System.out.println(rs1);
-
 
     }
 }
