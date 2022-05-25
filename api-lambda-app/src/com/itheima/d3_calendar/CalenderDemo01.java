@@ -32,5 +32,9 @@ public class CalenderDemo01 {
         System.out.println(d);
 
         // 6. public long getTimeInMillis():拿到此刻时间毫秒值。
+        long time = cal.getTimeInMillis();
+        System.out.println(time);
+        System.out.println(System.currentTimeMillis());
+
     }
 }
