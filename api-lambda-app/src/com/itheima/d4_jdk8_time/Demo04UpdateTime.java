@@ -2,6 +2,7 @@ package com.itheima.d4_jdk8_time;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.MonthDay;
 
 public class Demo04UpdateTime {
     public static void main(String[] args) {
@@ -17,6 +18,10 @@ public class Demo04UpdateTime {
         System.out.println(nowTime.plusSeconds(1)); // 一秒后
         System.out.println(nowTime.plusNanos(1)); // 一纳秒后
 
+        System.out.println("---------------------------");
+        // 不可变对象，每次修改产生新对象。
+        System.out.println(nowTime);
+
         System.out.println("---------------------");
         LocalDate myDate = LocalDate.of(2022, 5, 20);
         LocalDate nowDate = LocalDate.now();
@@ -28,7 +33,13 @@ public class Demo04UpdateTime {
         System.out.println("---------------------------");
 
         // 判断今天是否是你的生日
-        LocalDate birDate = LocalDate.of(1984, 12, 1);
+        LocalDate birDate = LocalDate.of(1984, 6, 2);
+        LocalDate nowDate1 = LocalDate.now();
+
+        MonthDay birMd = MonthDay.of(birDate.getMonthValue(), birDate.getDayOfMonth());
+        MonthDay nowMd = MonthDay.from(nowDate1);
+
+        System.out.println("今天是你的生日吗？ " + birMd.equals(nowMd));
 
 
 
