@@ -22,7 +22,7 @@ public class Demo06DateTimeFormat {
 
         // 解析字符串时间
         DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String dateStr = "2019-10-1 12:14:30";
+        String dateStr = "2019-11-01 12:14:30";
 
         // 解析当前字符串时间成为本地日期时间对象
         LocalDateTime ldt1 = LocalDateTime.parse(dateStr, dtf1);
