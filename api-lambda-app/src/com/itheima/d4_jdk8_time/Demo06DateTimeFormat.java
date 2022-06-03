@@ -27,5 +27,7 @@ public class Demo06DateTimeFormat {
         // 解析当前字符串时间成为本地日期时间对象
         LocalDateTime ldt1 = LocalDateTime.parse(dateStr, dtf1);
         System.out.println(ldt1);
+
+        System.out.println(ldt1.getDayOfYear());
     }
 }
