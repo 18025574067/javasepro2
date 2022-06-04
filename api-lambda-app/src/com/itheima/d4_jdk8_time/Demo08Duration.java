@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class Demo08Duration {
     public static void main(String[] args) {
-        // 本地日期时间对角。
+        // 本地日期时间对象。
         LocalDateTime today = LocalDateTime.now();
         System.out.println(today);
 
