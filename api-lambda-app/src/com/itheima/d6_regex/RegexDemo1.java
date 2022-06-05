@@ -5,6 +5,8 @@ public class RegexDemo1 {
         // 需求：检验QQ号码，必须为全数字 6-20位
         System.out.println(checkQQ("123221a22"));
         System.out.println(checkQQ("12322122"));
+        System.out.println(checkQQ(null));
+        System.out.println(checkQQ("123"));
 
     }
     public static boolean checkQQ(String qq){
