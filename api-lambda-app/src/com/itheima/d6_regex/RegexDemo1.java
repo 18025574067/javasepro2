@@ -9,13 +9,12 @@ public class RegexDemo1 {
         System.out.println(checkQQ("123"));
 
         System.out.println("------------------------------------------------");
+
         // 正则初体验
         System.out.println(checkQQ2("123221a22"));
         System.out.println(checkQQ2("12322122"));
         System.out.println(checkQQ2(null));
         System.out.println(checkQQ2("123"));
-
-
     }
     public static boolean checkQQ2(String qq){
         return qq != null && qq.matches("\\d{6,20}");
@@ -38,7 +37,5 @@ public class RegexDemo1 {
             }
         }
         return true; // 肯定合法了。
-
-
     }
 }
