@@ -1,6 +1,6 @@
 package com.itheima.d6_regex;
 
-public class RegexDemo2 {
+public class RegexDemo02 {
     public static void main(String[] args) {
         // public boolean matches(String regex):判断是否与正则表达式匹配，匹配返回true
         // 只能是 a b c
@@ -26,5 +26,11 @@ public class RegexDemo2 {
         System.out.println("ssds3c".matches("\\w{6,}"));
         System.out.println("ssdsc".matches("\\w{6,}"));
         System.out.println("ssdsda232s你c".matches("\\w{6,}"));
+
+        // 验证码，必须是数字和字符，必须是4位
+        System.out.println("23df".matches("[a-zA-Z0-9]{4}"));
+        System.out.println("23_f".matches("[a-zA-Z0-9]{4}"));
+        System.out.println("23df".matches("[\\w&&[^_]]{4}"));
+        System.out.println("23_f".matches("[\\w&&[^_]]{4}"));
     }
 }
