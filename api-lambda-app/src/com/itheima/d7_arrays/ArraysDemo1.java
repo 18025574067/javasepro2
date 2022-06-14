@@ -21,7 +21,9 @@ public class ArraysDemo1 {
         System.out.println(Arrays.toString(arr)); // API调用工程师
 
         // 3. 二分查找技术，前提数组必须先排序，否则出bug.
-
+        // 返回值为
+        int index = Arrays.binarySearch(arr, 55);
+        System.out.println(index);
 
 
     }
