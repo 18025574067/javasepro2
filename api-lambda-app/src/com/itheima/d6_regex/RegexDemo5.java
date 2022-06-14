@@ -24,6 +24,8 @@ public class RegexDemo5 {
         // 3. 得到一个内容匹配器对象
         Matcher matcher = pattern.matcher(rs);
 
+
+
         // 4. 爬取数据了
         while(matcher.find()){
             String rs1 = matcher.group();
