@@ -33,5 +33,15 @@ public class ArraysDemo2 {
         });
         System.out.println(Arrays.toString(ages1));
 
+        Student[] student = new Student[3];
+        student[0] = new Student("吴磊", 23, 166.5);
+        student[1] = new Student("谢鑫", 18, 176.5);
+        student[2] = new Student("王亮", 20, 186.5);
+
+        System.out.println(Arrays.toString(student));
+
+        Arrays.sort(student);
+        System.out.println(Arrays.toString(student));
+
     }
 }
