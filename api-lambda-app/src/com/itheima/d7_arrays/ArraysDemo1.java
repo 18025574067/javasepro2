@@ -22,9 +22,16 @@ public class ArraysDemo1 {
 
         // 3. 二分查找技术，前提数组必须先排序，否则出bug.
         // 返回值为
-        int index = Arrays.binarySearch(arr, 55);
+        int index = Arrays.binarySearch(arr, 40);
         System.out.println(index);
 
+        // 返回不存在元素的规律： -（应该插入的位置索引+1）
+        int index2 = Arrays.binarySearch(arr, 55);
+        System.out.println(index2);
+
+        // 注意：数组如果没有排好序，可能会出现找不到元素，出BUG。
+        int[] arr2 = {2, 43, 12, 56, 33, 234, 111, 456, 6};
+        System.out.println(Arrays.binarySearch(arr2, 111));
 
     }
 }
