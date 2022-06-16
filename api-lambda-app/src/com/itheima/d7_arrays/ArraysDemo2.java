@@ -40,7 +40,17 @@ public class ArraysDemo2 {
 
         System.out.println(Arrays.toString(student));
 
-        Arrays.sort(student);
+//        Arrays.sort(student); // 直接运行奔溃。
+        Arrays.sort(student, new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+//                return o1.getAge() - o2.getAge(); // 按照年龄进行升序排序
+//                return o2.getAge() - o1.getAge(); // 按照年龄进行降序排序
+//                return o1.getHeight() - o2.getHeight(); // 不能直接按照浮点数进行升序排序
+//                return Double.compare(o1.getHeight(), o2.getHeight()); // 浮点型比较可以这样写
+                return Double.compare(o2.getHeight(), o1.getHeight()); // 浮点型比较降序
+            }
+        });
         System.out.println(Arrays.toString(student));
 
     }
