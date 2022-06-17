@@ -7,6 +7,9 @@ public class Test2 {
     public static void main(String[] args) {
         // 1. 定义数组
         int[] arr = {10, 14, 16, 25, 28, 30, 88, 100};
+        //           l            m                r   // 往右找
+        //                        l       m        r   // 找到了
+        //                                m            // m就是要找的数据。
         System.out.println(binarySearch(arr, 30));
         System.out.println(binarySearch(arr, 300));
     }
