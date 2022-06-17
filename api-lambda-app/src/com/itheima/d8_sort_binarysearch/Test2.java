@@ -34,9 +34,9 @@ public class Test2 {
                 // 往左边找，右位置更新为 = 中间索引 - 1
                 right = middleIndex - 1;
             }else {
-                return middleIndex;
+                return middleIndex; // 找到元素。
             }
         }
-        return -1;
+        return -1; // 查无此元素。
     }
 }
