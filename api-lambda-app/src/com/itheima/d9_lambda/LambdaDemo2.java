@@ -19,6 +19,7 @@ public class LambdaDemo2 {
 //        go(s1);
 
         Swimming s1 = () -> System.out.println("老师游泳贼溜。。。。");
+
         go(s1);
 
         System.out.println("-------------------------");
