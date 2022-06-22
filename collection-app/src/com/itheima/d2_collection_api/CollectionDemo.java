@@ -58,9 +58,10 @@ public class CollectionDemo {
         c2.add("殷素素");
         c2.add("赵敏");
 
-        // addall() 把c2的集合全部倒到c1
+        // addall() 把c1的集合全部倒到c2
         c2.addAll(c1);
         System.out.println(c2);
+        System.out.println(c1);
 
 
     }
