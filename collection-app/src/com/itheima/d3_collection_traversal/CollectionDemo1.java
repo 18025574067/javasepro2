@@ -22,6 +22,18 @@ public class CollectionDemo1 {
 
         // 1. 得到一个迭代器对象
         Iterator<String> it = lists.iterator();
+//        String ele = it.next();
+//        System.out.println(ele);
+//        System.out.println(it.next());
+//        System.out.println(it.next());
+//        System.out.println(it.next());
+        // System.out.println(it.next()); // 会出现无此元素异常的错误，NoSuchElementException。
+
+        // 定义while循环
+        while (it.hasNext()){
+            String ele = it.next();
+            System.out.println(ele);
+        }
 
         System.out.println("-----------------------");
 
