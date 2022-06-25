@@ -33,7 +33,7 @@ public class CollectionDemo1 {
         while (it.hasNext()){
             String ele = it.next();
             System.out.println(ele);
-            System.out.println(it.next());
+//            System.out.println(it.next());
         }
 
         System.out.println("-----------------------");
