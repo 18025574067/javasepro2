@@ -16,7 +16,7 @@ public class CollectionDemo1 {
         lists.add("赵敏");
         lists.add("小昭");
         lists.add("素素");
-//        lists.add("灭绝");
+        lists.add("灭绝");
         System.out.println(lists);
 
 
