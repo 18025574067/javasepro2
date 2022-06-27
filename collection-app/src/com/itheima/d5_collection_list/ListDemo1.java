@@ -31,6 +31,7 @@ public class ListDemo1 {
         System.out.println(list.get(2));
 
         // 5. 修改索引位置处的元素：public E set(int index, E element)
+        // 返回修改前的数据。
         System.out.println(list.set(1, "高斯林"));
         System.out.println(list);
 
