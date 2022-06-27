@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class CodeSelectionSort {
     // 选择排序
-
     public static void main(String[] args) {
         int[] arr = {1, 3, 2, 5, 7, 4, 0, 8};
         selectionSort(arr);

@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class CodeBubbleSort {
     // 冒泡排序
-
     public static void main(String[] args) {
         int[] arr = {2, 5, 1, 7, 9, 3, 4, 6, 8, 0};
         bubbleSort(arr);

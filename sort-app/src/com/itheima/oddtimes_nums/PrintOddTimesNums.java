@@ -13,6 +13,7 @@ public class PrintOddTimesNums {
         int eor = 0;
         for (int cur: arr){
             eor ^= cur;
+
         }
         System.out.println(eor);
     }
