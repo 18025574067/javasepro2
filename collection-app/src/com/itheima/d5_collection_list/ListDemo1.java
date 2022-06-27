@@ -13,23 +13,28 @@ import java.util.List;
 public class ListDemo1 {
     public static void main(String[] args) {
         // 1. 创建一个ArrayList集合对象
+        // List:有序，可重复，有索引的。
         List<String> list = new ArrayList<>(); // 一行经典代码诞生了。
         list.add("Java");
         list.add("Java");
         list.add("MySQL");
         list.add("MySQL");
 
-        // List:有序，可重复，有索引的。
-        list.add(1, "Python");
-
         // 2. 在某个索引位置插入元素
-
+        list.add(1, "Python");
+        System.out.println(list);
         // 3. 根据索引删除元素，返回被删除元素。
+        System.out.println(list.remove(2));
+        System.out.println(list);
 
         // 4. 根据索引获取元素：public E get(int index): 返回集合中指定位置的元素。
-
+        System.out.println(list.get(2));
 
         // 5. 修改索引位置处的元素：public E set(int index, E element)
+        System.out.println(list.set(1, "高斯林"));
+        System.out.println(list);
 
+        list.clear();
+        System.out.println(list);
     }
 }
