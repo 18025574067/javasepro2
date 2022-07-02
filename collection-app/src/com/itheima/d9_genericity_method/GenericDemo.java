@@ -25,9 +25,6 @@ public class GenericDemo {
 
         Integer[] ages1 = getArr(ages);
         String[] names1 = getArr(names);
-
-
-
     }
 
     public static <T> T[] getArr(T[] arr){
