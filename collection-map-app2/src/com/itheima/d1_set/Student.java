@@ -1,9 +1,32 @@
 package com.itheima.d1_set;
 
+import java.util.Objects;
+
 public class Student {
     private String name;
     private int age;
     private char sex;
+
+    /**
+        只要两个对象内容一样，结果一定为true.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && sex == student.sex && Objects.equals(name, student.name);
+    }
+
+    /**
+     s1 = new Student("无恙", 20, '男');
+     s2 = new Student("无恙", 20, '男');
+     s3 = new Student("周雄", 21, '男');
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, sex);
+    }
 
     public Student() {
     }
