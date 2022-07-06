@@ -1,4 +1,4 @@
-package com.itheima.set;
+package com.itheima.d1_set;
 
 public class Student {
     private String name;

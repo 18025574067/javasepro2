@@ -1,4 +1,4 @@
-package com.itheima.set;
+package com.itheima.d1_set;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

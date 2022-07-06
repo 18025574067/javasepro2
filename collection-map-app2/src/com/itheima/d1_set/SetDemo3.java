@@ -1,10 +1,10 @@
-package com.itheima.set;
+package com.itheima.d1_set;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
-    目标：让set集合把重复内容的对象去掉（去重复）
+ 目标：让set集合把重复内容的对象去掉（去重复）
 
  */
 public class SetDemo3 {
