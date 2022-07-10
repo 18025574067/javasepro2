@@ -36,7 +36,8 @@ public class SetDemo5 {
             @Override
             public int compare(Apple o1, Apple o2) {
 //                return o1.getWeight() - o2.getWeight(); // 升序
-                return o2.getWeight() - o1.getWeight(); // 降序
+//                return o2.getWeight() - o1.getWeight(); // 降序
+                return Double.compare(o1.getPrice(), o2.getPrice());
             }
         });
         apples.add(new Apple("红富士", "红色", 9.9, 500));
