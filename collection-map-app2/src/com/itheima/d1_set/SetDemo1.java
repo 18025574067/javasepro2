@@ -8,7 +8,8 @@ public class SetDemo1 {
     public static void main(String[] args) {
         // 看看Set系列集合的特点：HashSet LinkedHashSet TreeSet
 
-        HashSet<String> sets = new HashSet<>(); // 一行经典代码, 无序，不重复，无索引
+        // 无序，不重复，无索引
+        HashSet<String> sets = new HashSet<>(); // 一行经典代码
 //        Set<String> sets = new LinkedHashSet<>(); // 有序，不重复，无索引。
         sets.add("Java");
         sets.add("Java");
