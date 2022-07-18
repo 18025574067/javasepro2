@@ -6,6 +6,7 @@ import java.util.TreeSet;
 
 /**
     目标：观察TreeSet对于有值特性的数据如何排序。
+         学会对自定义对象进行制定规则排序。
  */
 public class SetDemo5 {
     public static void main(String[] args) {
