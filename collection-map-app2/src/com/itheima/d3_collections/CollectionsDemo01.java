@@ -1,5 +1,9 @@
 package com.itheima.d3_collections;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
     目标：Collections工具类的使用：
     java.utils.Collections: 是集合工具类
@@ -13,6 +17,17 @@ package com.itheima.d3_collections;
  */
 public class CollectionsDemo01 {
     public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+//        names.add("楚留香");
+//        names.add("胡铁花");
+//        names.add("张无忌");
+//        names.add("陆小凤");
+        Collections.addAll(names, "楚留香", "胡铁花", "张无忌", "陆小凤");
+        System.out.println(names);
+
+        // 2. -public static void shuffle(List<T> list):打乱集合顺序。
+        Collections.shuffle(names);
+        System.out.println(names);
 
     }
 }
