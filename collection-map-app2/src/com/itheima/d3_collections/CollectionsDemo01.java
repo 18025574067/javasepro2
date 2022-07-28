@@ -1,8 +1,6 @@
 package com.itheima.d3_collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
     目标：Collections工具类的使用：
@@ -28,6 +26,11 @@ public class CollectionsDemo01 {
         // 2. -public static void shuffle(List<T> list):打乱集合顺序。
         Collections.shuffle(names);
         System.out.println(names);
-
+        // 3. -public static <T> void sort(List<T> list): 将集合中元素按照默认规则排序。(排值特性的元素。)
+        List<Integer> list = new ArrayList<>();
+        Collections.addAll(list, 12, 34, 1, 4, 5);
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
     }
 }
