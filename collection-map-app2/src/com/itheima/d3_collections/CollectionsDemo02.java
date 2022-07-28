@@ -27,12 +27,17 @@ public class CollectionsDemo02 {
 //        Collections.sort(apples); // 方法一： 可以的，Apple类已经重写了比较规则。
 
         // 方法二：sort自带比较器对象
-        Collections.sort(apples, new Comparator<Apple>() {
-            @Override
-            public int compare(Apple o1, Apple o2) {
-                return Double.compare(o1.getPrice(), o2.getPrice());
-            }
-        });
+
+//        Collections.sort(apples, new Comparator<Apple>() {
+//            @Override
+//            public int compare(Apple o1, Apple o2) {
+//                return Double.compare(o2.getPrice(), o1.getPrice());
+//            }
+//        });
+
+        // 简化写法：
+        Collections.sort(apples, (o1, o2) -> Double.compare(o2.getPrice(), o1.getPrice()));
+
         System.out.println(apples);
 
     }
