@@ -28,7 +28,6 @@ public class GameDemo {
         1. 定义一个静态的集合存储54张牌
 
      */
-
     public static List<Card> allCard = new ArrayList<>();
 
     /**
@@ -55,7 +54,7 @@ public class GameDemo {
         Card c1 = new Card("", "♔");
         Card c2 = new Card("", "♛");
         Collections.addAll(allCard, c1, c2);
-        System.out.println("新牌：" + allCard);
+        System.out.println("新扑克牌：" + allCard);
     }
 
 
