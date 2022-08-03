@@ -62,7 +62,7 @@ public class GameDemo {
 
         // 10. 发牌，定义3个玩家，每个玩家也是一个集合容器
         List<Card> linghuchong = new ArrayList<>(); // 令狐冲
-        List<Card> jiumozhi = new ArrayList<>(); //鸠摩智
+        List<Card> jiumozhi = new ArrayList<>(); // 鸠摩智
         List<Card> renyingying = new ArrayList<>(); //
 
     }
