@@ -30,10 +30,7 @@ public class GameDemo {
      */
     public static List<Card> allCard = new ArrayList<>();
 
-    /**
-        2. 做牌：定义静态代码块初始化数据
-
-     */
+    // 2. 做牌：定义静态代码块初始化数据
     static {
         // 3. 定义点数：个数确定，类型确定，使用数组
         String[] sizes = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"};
@@ -59,6 +56,14 @@ public class GameDemo {
 
 
     public static void main(String[] args) {
+        // 9. 洗牌
+        Collections.shuffle(allCard);
+        System.out.println("洗牌后： " + allCard);
+
+        // 10. 发牌，定义3个玩家，每个玩家也是一个集合容器
+        List<Card> linghuchong = new ArrayList<>(); // 令狐冲
+        List<Card> jiumozhi = new ArrayList<>(); //鸠摩智
+        List<Card> renyingying = new ArrayList<>(); //
 
     }
 }
