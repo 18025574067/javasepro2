@@ -36,7 +36,7 @@ public class CollectionsDemo02 {
 //        });
 
         // 简化写法：
-        Collections.sort(apples, (o1, o2) -> Double.compare(o2.getPrice(), o1.getPrice()));
+        Collections.sort(apples, (o1, o2) -> Double.compare(o1.getPrice(), o2.getPrice()));
 
         System.out.println(apples);
 
