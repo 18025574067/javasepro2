@@ -64,6 +64,18 @@ public class MapDemo {
         System.out.println(maps.size());
 
         // 11. 合并其他集合（拓展）
+        Map<String, Integer> map1 = new HashMap<>();
+        map1.put("java1", 1);
+        map1.put("java2", 1);
+        Map<String, Integer> map2 = new HashMap<>();
+        map2.put("java2", 100);
+        map2.put("python1", 1);
+        map2.put("python2", 1);
+        map1.putAll(map2); // 从map2拷贝一份到map1。
+        System.out.println(map1);
+        System.out.println(map2);
+
+
 
     }
 }
