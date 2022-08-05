@@ -17,16 +17,35 @@ public class MapDemo {
         System.out.println(maps);
 
         // 2. 清空集合
+//        maps.clear();
+//        System.out.println(maps);
 
         // 3. 判断集合是否为空，为空返回true, 反之
+        System.out.println(maps.isEmpty());
+
 
         // 4. 根据键获取对应值：public V get(Object key)
+        Integer key = maps.get("huawei");
+        System.out.println(key);
+        System.out.println(maps.get("手表"));
+        System.out.println(maps.get("生活用品"));
+        System.out.println(maps.get("生活用品2"));
 
         // 5. 根据键删除整个元素 （删除键会返回键的值）
+        System.out.println(maps.remove("iphoneX"));
+        System.out.println(maps);
 
         // 6. 判断是否包含某个键，包含返回true, 反之
+        System.out.println(maps.containsKey("娃娃"));
+        System.out.println(maps.containsKey("iphoneX"));
+
 
         // 7. 判断是否包含某个值。
+        System.out.println(maps.containsValue(100));
+        System.out.println(maps.containsValue(10));
+        System.out.println(maps.containsValue(22));
+
+
         // {huawei=1000, 手表=10, 生活用品=10, 娃娃=31}
 
         // 8. 获取全部键的集合： public Set<K> keySet()
