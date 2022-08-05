@@ -1,7 +1,9 @@
 package com.itheima.d6_map_api;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class MapDemo {
     public static void main(String[] args) {
@@ -46,42 +48,22 @@ public class MapDemo {
         System.out.println(maps.containsValue(22));
 
 
-        // {huawei=1000, 手表=10, 生活用品=10, 娃娃=31}
+        // {huawei=1000, 手表=10, 生活用品=10, 娃娃=20}
 
         // 8. 获取全部键的集合： public Set<K> keySet()
-
+        Set<String> keys = maps.keySet();
+        System.out.println(keys);
 
         System.out.println("--------------------------------");
         // 9. 获取全部值的集合： Collection<V> value();
+        Collection<Integer> values = maps.values();
+        System.out.println(values);
+
 
         // 10. 集合的大小。
+        System.out.println(maps.size());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // 11. 合并其他集合（拓展）
 
     }
-
-
-
-
-
-
-
-
-
-
-
 }
