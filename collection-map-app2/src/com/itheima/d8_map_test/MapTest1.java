@@ -36,5 +36,6 @@ public class MapTest1 {
         }
         // 4. 输出集合。
         System.out.println(infos);
+
     }
 }
