@@ -32,9 +32,9 @@ public class MapTest1 {
             }else {
                 // 说明此景点是第一次被选
                 infos.put(ch, 1);
-
             }
         }
+        // 4. 输出集合。
         System.out.println(infos);
     }
 }
