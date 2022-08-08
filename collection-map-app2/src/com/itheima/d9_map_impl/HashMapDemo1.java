@@ -10,7 +10,6 @@ import java.util.Set;
 public class HashMapDemo1 {
     public static void main(String[] args) {
         // Map集合是根据键去除元素的
-
         Map<Student, String> maps = new HashMap();
 
         // Set集合去重原理：先判断哈希值，再判断equals.
