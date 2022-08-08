@@ -1,4 +1,4 @@
-package com.itheima.d1_set;
+package com.itheima.d1_collection_set;
 
 public class Apple implements Comparable<Apple>{
     private String name;

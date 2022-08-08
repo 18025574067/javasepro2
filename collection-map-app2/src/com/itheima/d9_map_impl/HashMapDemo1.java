@@ -1,11 +1,9 @@
 package com.itheima.d9_map_impl;
 
-import com.itheima.d1_set.Student;
+import com.itheima.d1_collection_set.Student;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class HashMapDemo1 {
     public static void main(String[] args) {

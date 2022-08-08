@@ -1,4 +1,4 @@
-package com.itheima.d1_set;
+package com.itheima.d1_collection_set;
 
 public class SetDemo2 {
     public static void main(String[] args) {
