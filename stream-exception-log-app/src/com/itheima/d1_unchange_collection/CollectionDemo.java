@@ -19,5 +19,6 @@ public class CollectionDemo {
 
         // 2. 不可变的Set集合。
         Set<String> names = Set.of("迪丽热巴", "迪丽热九", "马尔扎哈", "卡尔眨巴");
+        System.out.println(names);
     }
 }
