@@ -1,6 +1,8 @@
 package com.itheima.d1_unchange_collection;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,6 +21,11 @@ public class CollectionDemo {
 
         // 2. 不可变的Set集合。
         Set<String> names = Set.of("迪丽热巴", "迪丽热九", "马尔扎哈", "卡尔眨巴");
+//        names.add("三少爷");
         System.out.println(names);
+
+        // 3. 不可变的Map集合。
+        Map<String, Integer> map = Map.of("huawei", 2, "Java开发", 1, "手表", 1);
+        System.out.println(map);
     }
 }
