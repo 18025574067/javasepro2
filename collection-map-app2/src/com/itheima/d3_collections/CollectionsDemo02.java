@@ -28,12 +28,12 @@ public class CollectionsDemo02 {
 
          // 方法二：sort自带比较器对象
 
-        Collections.sort(apples, new Comparator<Apple>() {
-            @Override
-            public int compare(Apple o1, Apple o2) {
-                return Double.compare(o2.getPrice(), o1.getPrice());
-            }
-        });
+//        Collections.sort(apples, new Comparator<Apple>() {
+//            @Override
+//            public int compare(Apple o1, Apple o2) {
+//                return Double.compare(o2.getPrice(), o1.getPrice());
+//            }
+//        });
 
         // 简化写法：
         Collections.sort(apples, (o1, o2) -> Double.compare(o1.getPrice(), o2.getPrice()));
