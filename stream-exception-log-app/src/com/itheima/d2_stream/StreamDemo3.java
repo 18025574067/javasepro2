@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -31,6 +32,25 @@ public class StreamDemo3 {
         System.out.println(list);
 
         // Stream<T> filter(Predicate<? super T> predicate);
+        // filter 过滤
         list.stream().filter((String s) -> s.startsWith("张")).forEach((String s) -> System.out.println(s));
+
+        // count 统计个数
+        long size = list.stream().filter(s -> s.length() == 3).count();
+        System.out.println(size);
+
+        // 取前几个
+//        list.stream().filter(s -> s.startsWith("张")).limit(2).forEach(s -> System.out.println(s));
+        list.stream().filter(s -> s.startsWith("张")).limit(2).forEach(System.out::println);
+
+
+        // 跳过前几个
+        list.stream().filter(s -> s.startsWith("张")).skip(2).forEach(System.out::println);
+
+        // map加工方法：第一参数是原材料，第2个参数是加工后的结果
+        // 给集合元素前面加上一个 黑马的：
+        list.stream().map(s -> "黑马" +s).forEach(System.out::println);
+
+
     }
 }
