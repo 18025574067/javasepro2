@@ -11,24 +11,25 @@ public class StreamTest {
         System.out.println(names);
 
         // 1. 从集合中找到姓 张 的放到新集合
-        List<String> zhangList = new ArrayList<>();
-        for (String name : names) {
-            if (name.startsWith("张")){
-                zhangList.add(name);
-            }
-        }
-
-        System.out.println(zhangList);
-
-        // 2. 找出名称长度为3的放到新集合
-        List<String> zhangThreeList = new ArrayList<>();
-        for (String n : zhangList) {
-            if (n.length() == 3){
-                zhangThreeList.add(n);
-            }
-        }
-        System.out.println(zhangThreeList);
+//        List<String> zhangList = new ArrayList<>();
+//        for (String name : names) {
+//            if (name.startsWith("张")){
+//                zhangList.add(name);
+//            }
+//        }
+//
+//        System.out.println(zhangList);
+//
+//        // 2. 找出名称长度为3的放到新集合
+//        List<String> zhangThreeList = new ArrayList<>();
+//        for (String n : zhangList) {
+//            if (n.length() == 3){
+//                zhangThreeList.add(n);
+//            }
+//        }
+//        System.out.println(zhangThreeList);
 
         // 3. 使用Stream流实现以上功能。
+        names.stream().filter(s -> s.startsWith("张")).filter(s -> s.length() == 3).forEach(s -> System.out.println(s));
     }
 }
