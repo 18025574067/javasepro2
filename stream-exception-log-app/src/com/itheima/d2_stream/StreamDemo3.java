@@ -50,7 +50,5 @@ public class StreamDemo3 {
         // map加工方法：第一参数是原材料，第2个参数是加工后的结果
         // 给集合元素前面加上一个 黑马的：
         list.stream().map(s -> "黑马" +s).forEach(System.out::println);
-
-
     }
 }
