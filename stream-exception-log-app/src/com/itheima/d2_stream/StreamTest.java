@@ -28,5 +28,7 @@ public class StreamTest {
             }
         }
         System.out.println(zhangThreeList);
+
+        // 3. 使用Stream流实现以上功能。
     }
 }
