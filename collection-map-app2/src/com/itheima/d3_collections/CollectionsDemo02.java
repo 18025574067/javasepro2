@@ -26,7 +26,7 @@ public class CollectionsDemo02 {
 
 //        Collections.sort(apples); // 方法一： 可以的，Apple类已经重写了比较规则。
 
-        // 方法二：sort自带比较器对象
+         // 方法二：sort自带比较器对象
 
 //        Collections.sort(apples, new Comparator<Apple>() {
 //            @Override
