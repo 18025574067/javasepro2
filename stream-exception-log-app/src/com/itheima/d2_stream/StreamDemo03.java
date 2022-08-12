@@ -1,11 +1,7 @@
 package com.itheima.d2_stream;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 /**
     目标：Stream 流的常用API
@@ -20,7 +16,7 @@ import java.util.function.Predicate;
         concat: 合并流。
 
  */
-public class StreamDemo3 {
+public class StreamDemo03 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("张无忌");

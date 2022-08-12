@@ -15,7 +15,7 @@ import java.util.stream.Stream;
         集合获取Stream流用：stream();
         数组：Arrays.stream(数组) / Stream.of(数组);
  */
-public class StreamDemo2 {
+public class StreamDemo02 {
     public static void main(String[] args) {
         /**-----------------Collection集合获取流-------------------*/
         Collection<String> list = new ArrayList<>();
