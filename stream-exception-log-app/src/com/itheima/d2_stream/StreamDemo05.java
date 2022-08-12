@@ -1,44 +1,31 @@
 package com.itheima.d2_stream;
 
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**    Stream流式思想的核心：
-        是先得到集合或者数组的Stream流（就是一根传送带）
-        然后就用这个Stream流操作集合或者数组的元素。
-        然后用Stream流简化替代集合操作的API
-
-    集合获取流的API:
-        (1) default Stream<E> stream();
-
-    小结：
-        集合获取Stream流用：stream();
-        数组：Arrays.stream(数组) / Stream.of(数组);
+/**
+    目标：收集Stream流的数据到集合和数组。
  */
 public class StreamDemo05 {
     public static void main(String[] args) {
-        /**-----------------Collection集合获取流-------------------*/
-        Collection<String> list = new ArrayList<>();
-        Stream<String> s = list.stream();
+        List<String> list = new ArrayList<>();
+        list.add("张无忌");
+        list.add("周芷若");
+        list.add("赵敏");
+        list.add("张强");
+        list.add("张三丰");
+        System.out.println(list);
+
+        Stream<String> s1 = list.stream().filter(s -> s.startsWith("张"));
+        List<String> zhangList = s1.collect(Collectors.toList());
+        System.out.println(zhangList);
+
+        // 流只能使用一次。
+        Set<String> zhangSet = s1.collect(Collectors.toSet());
+        System.out.println(zhangSet);
 
 
-        /**-----------------Map集合获取流-------------------*/
-        Map<String, Integer> map = new HashMap<>();
-
-        // 键流
-        Stream<String> keyStream = map.keySet().stream();
-
-        // 值流
-        Stream<Integer> valueStream = map.values().stream();
-
-        // 键值对流
-        Stream<Map.Entry<String, Integer>> keyAndValueStream = map.entrySet().stream();
-
-
-
-        /**-----------------数组获取流-------------------*/
-        String[] names = {"赵敏", "小昭", "灭绝", "周芷若"};
-        Stream<String> name = Arrays.stream(names);
-        Stream<String> name2 = Stream.of(names);
     }
 }
