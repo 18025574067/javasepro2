@@ -15,6 +15,13 @@ package com.itheima.d3_exception;
  */
 public class ExceptionDemo {
     public static void main(String[] args) {
+        int[] arrs = {10, 23, 44,55};
+        System.out.println(arrs[0]);
+        System.out.println(arrs[1]);
+        System.out.println(arrs[2]);
+        System.out.println(arrs[3]);
+        System.out.println(arrs[4]);
+        System.out.println("=============程序结束==============");
 
     }
 }
