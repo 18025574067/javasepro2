@@ -7,8 +7,6 @@ public class ExceptionDemo {
     public static void main(String[] args) {
         System.out.println("程序开始-------------------");
         chu(12, 5);
-
-
         System.out.println("程序结束-------------------");
     }
     public static void chu(int a, int b){
