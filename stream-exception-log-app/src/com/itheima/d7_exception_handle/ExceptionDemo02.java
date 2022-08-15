@@ -27,12 +27,22 @@ public class ExceptionDemo02 {
             System.out.println(d);
             InputStream is = new FileInputStream("E:/meinv.jpg");
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }catch (FileNotFoundException e){
-            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace(); // 企业级写法。
         }
     }
+
+//    public static void parseTime(String date) {
+//        try {
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date d = sdf.parse(date);
+//            System.out.println(d);
+//            InputStream is = new FileInputStream("E:/meinv.jpg");
+//
+//        } catch (ParseException|FileNotFoundException e) {
+//            e.printStackTrace(); //打印异常栈信息。
+//        }
+//    }
 
 //    public static void parseTime(String date) {
 //        try {
