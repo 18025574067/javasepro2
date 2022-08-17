@@ -23,6 +23,5 @@ public class Test {
             e.printStackTrace();
             LOGGER.error("功能出现异常：" + e);
         }
-
     }
 }
