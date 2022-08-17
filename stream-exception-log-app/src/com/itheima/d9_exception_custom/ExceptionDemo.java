@@ -25,8 +25,19 @@ package com.itheima.d9_exception_custom;
 
  */
 public class ExceptionDemo {
-    public static void main(String[] args) throws ItheimaAgeIllegalException {
-        checkAge(-34);
+//    public static void main(String[] args) throws ItheimaAgeIllegalException {
+    public static void main(String[] args) throws ItheimaAgeIllegalRuntimeException{
+        try {
+            checkAge(-34);
+        } catch (ItheimaAgeIllegalException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            checkAge2(-34);
+        } catch (ItheimaAgeIllegalRuntimeException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void checkAge(int age) throws ItheimaAgeIllegalException {
@@ -34,7 +45,18 @@ public class ExceptionDemo {
             // 抛出异常给调用者
             // throw :在方法内部直接创建一个异常对象，并从此点抛出
             // throws: 用在方法申明上的，抛出方法内部的异常。
-            throw new ItheimaAgeIllegalException(age + "is illegal!");
+            throw new ItheimaAgeIllegalException(age + " is illegal!");
+        }else {
+            System.out.println("年龄合法，推荐商品给其购买。。。");
+        }
+    }
+
+    public static void checkAge2(int age) throws ItheimaAgeIllegalRuntimeException {
+        if (age < 0 || age > 200){
+            // 抛出异常给调用者
+            // throw :在方法内部直接创建一个异常对象，并从此点抛出
+            // throws: 用在方法申明上的，抛出方法内部的异常。
+            throw new ItheimaAgeIllegalRuntimeException(age + " is illegal!");
         }else {
             System.out.println("年龄合法，推荐商品给其购买。。。");
         }
