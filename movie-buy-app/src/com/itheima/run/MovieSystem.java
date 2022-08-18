@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class MovieSystem {
     /**
-        定义系统的用户存储容器
+        定义系统的用户存储容器:
         1. 存储很多客户对象，商家对象
      */
     public static final List<User> ALL_USERS = new ArrayList<>();
