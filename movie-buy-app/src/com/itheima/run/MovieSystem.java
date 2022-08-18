@@ -118,21 +118,32 @@ public class MovieSystem {
     }
 
     private static void begin() {
-        System.out.println("请输入用户名：");
-        String loginName = SYS_SC.nextLine();
-        System.out.println("请输入密码：");
-        String passWord = SYS_SC.nextLine();
+        while (true) {
+            System.out.println("请输入用户名：");
+            String loginName = SYS_SC.nextLine();
+            System.out.println("请输入密码：");
+            String passWord = SYS_SC.nextLine();
 
-        // 1. 根据用户查询用户对象
+            // 1. 根据用户查询用户对象
+            User u = getUserByLoginName(loginName);
+
+            // 2. 判断登录名是否存在，存在说明用户存在
+            if (u != null){
+
+            }else {
+                System.out.println("登录名错误，请确认：");
+            }
+        }
     }
 
     public static User getUserByLoginName(String loginName){
         for (User user : ALL_USERS) {
             // 判断这个用户是否我们想要的
             if (user.getLoginName().equals(loginName)){
+                return user;
 
             }
         }
-        return null;
+        return null; // 查无此人。
     }
 }
