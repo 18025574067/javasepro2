@@ -15,7 +15,7 @@ public class Test {
             LOGGER.debug("main方法开始执行了。。。");
             LOGGER.info("我开始记录第二行日志了，我要做除法：");
             int a = 10;
-            int b = 0;
+            int b = 2;
             LOGGER.trace("a=" + a);
             LOGGER.trace("b=" + b);
             System.out.println(a/b);

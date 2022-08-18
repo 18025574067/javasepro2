@@ -28,13 +28,13 @@ public class ExceptionDemo {
 //    public static void main(String[] args) throws ItheimaAgeIllegalException {
     public static void main(String[] args) throws ItheimaAgeIllegalRuntimeException{
         try {
-            checkAge(-34);
+            checkAge(34);
         } catch (ItheimaAgeIllegalException e) {
             e.printStackTrace();
         }
 
         try {
-            checkAge2(-34);
+            checkAge2(34);
         } catch (ItheimaAgeIllegalRuntimeException e) {
             e.printStackTrace();
         }
