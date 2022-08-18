@@ -5,10 +5,7 @@ import com.itheima.bean.Customer;
 import com.itheima.bean.Movie;
 import com.itheima.bean.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
      系统角色类准备：
@@ -37,6 +34,8 @@ public class MovieSystem {
      */
     public static final Map<Business, List<Movie>> ALL_MOVIES = new HashMap<>();
 
+    // 扫描器
+    public static final Scanner SYS_SC = new Scanner(System.in);
     /**
         3. 准备一些测试数据。
      */
@@ -88,7 +87,52 @@ public class MovieSystem {
     }
 
     public static void main(String[] args) {
+        showMain();
 
+    }
 
+    /**
+        首页展示
+     */
+    private static void showMain() {
+        System.out.println("===============黑马电影首页===================");
+        System.out.println("1. 登录");
+        System.out.println("2. 客户注册");
+        System.out.println("3. 商家登录");
+        while (true) {
+            System.out.println("请输入操作命令：");
+            String command = SYS_SC.nextLine();
+            switch (command){
+                case "1":
+                    // 登录
+                    begin();
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                default:
+                    System.out.println("你的输入有误：");
+            }
+        }
+    }
+
+    private static void begin() {
+        System.out.println("请输入用户名：");
+        String loginName = SYS_SC.nextLine();
+        System.out.println("请输入密码：");
+        String passWord = SYS_SC.nextLine();
+
+        // 1. 根据用户查询用户对象
+    }
+
+    public static User getUserByLoginName(String loginName){
+        for (User user : ALL_USERS) {
+            // 判断这个用户是否我们想要的
+            if (user.getLoginName().equals(loginName)){
+
+            }
+        }
+        return null;
     }
 }
