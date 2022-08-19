@@ -95,11 +95,11 @@ public class MovieSystem {
         首页展示
      */
     private static void showMain() {
-        System.out.println("===============黑马电影首页===================");
-        System.out.println("1. 登录");
-        System.out.println("2. 客户注册");
-        System.out.println("3. 商家登录");
         while (true) {
+            System.out.println("===============黑马电影首页===================");
+            System.out.println("1. 登录");
+            System.out.println("2. 客户注册");
+            System.out.println("3. 商家登录");
             System.out.println("请输入操作命令：");
             String command = SYS_SC.nextLine();
             switch (command){
@@ -112,7 +112,7 @@ public class MovieSystem {
                 case "3":
                     break;
                 default:
-                    System.out.println("你的输入有误：");
+                    System.out.println("你的输入有误，请确认！");
             }
         }
     }
@@ -129,11 +129,38 @@ public class MovieSystem {
 
             // 2. 判断登录名是否存在，存在说明用户存在
             if (u != null){
+                // 3. 判断密码是否正确
+                if (u.getPassWord().equals(passWord)){
+                    // 登录成功了
+                    // 判断是普通用户还是商家
+                    if (u instanceof Customer){
+                        // 普通用户
+                        showCustomerMain();
+                    }else {
+                        // 商户用户
+                        showBusinessMain();
+                    }
+                    return;
 
+                }else {
+                    System.out.println("密码错误，请确认！");
+                }
             }else {
-                System.out.println("登录名错误，请确认：");
+                System.out.println("登录名错误，请确认！");
             }
         }
+    }
+
+    /**
+        商家后台操作界面
+     */
+    private static void showBusinessMain() {
+    }
+
+    /**
+        普通用户操作界面
+     */
+    private static void showCustomerMain() {
     }
 
     public static User getUserByLoginName(String loginName){
