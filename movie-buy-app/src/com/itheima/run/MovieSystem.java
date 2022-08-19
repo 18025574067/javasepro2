@@ -4,7 +4,10 @@ import com.itheima.bean.Business;
 import com.itheima.bean.Customer;
 import com.itheima.bean.Movie;
 import com.itheima.bean.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -39,6 +42,11 @@ public class MovieSystem {
 
     // 当前登录用户
     public static User loginUser;
+
+    public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    // 日志
+    public static final Logger LOGGER = LoggerFactory.getLogger("MovieSystem.class");
 
     /**
         3. 准备一些测试数据。
@@ -137,6 +145,7 @@ public class MovieSystem {
                 if (u.getPassWord().equals(passWord)){
                     // 登录成功了
                     loginUser = u;
+                    LOGGER.info(u.getLoginName() + "登录了系统～～～");
                     // 判断是普通用户还是商家
                     if (u instanceof Customer){
                         // 普通用户
@@ -200,14 +209,19 @@ public class MovieSystem {
         展示商家的详细信息与排片情况
      */
     private static void showBusinessInfos() {
-        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息: Map<Business, List<Movie>> ALL_MOVIES.
+        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息:
+        // Map<Business,List<Movie>> ALL_MOVIES.
         Business business = (Business)loginUser;
-        System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone() + "\t\t地址：" + business.getAddress());
+        System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone() + "\t\t地址："
+                + business.getAddress());
         List<Movie> movies = ALL_MOVIES.get(business);
-        System.out.println("片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t余票数量\t\t放映时间");
-        for (Movie movie : movies) {
-            System.out.println(movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime() + "\t\t"
-                    + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber() + "\t\t" + movie.getStartTime());
+        if (movies.size() > 0) {
+            System.out.println("片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t余票数量\t\t放映时间");
+            for (Movie movie : movies) {
+                System.out.println(movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime()
+                        + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber()
+                        + "\t\t" + sdf.format(movie.getStartTime()));
+            }
         }
     }
 
