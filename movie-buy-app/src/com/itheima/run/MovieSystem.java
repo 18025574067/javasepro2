@@ -161,32 +161,36 @@ public class MovieSystem {
     private static void showBusinessMain() {
         while (true){
             System.out.println("================黑马电影商家界面================");
+            System.out.println(loginUser.getLoginName() + (loginUser.getSex() == '男' ? "先生": "女士")
+                + "欢迎您进入系统");
             System.out.println("1. 展示详情");
             System.out.println("2. 上架电影");
             System.out.println("3. 下架电影");
             System.out.println("4. 修改电影");
             System.out.println("5. 退出");
 
-            System.out.println("请输入您要操作的命令：");
-            String command = SYS_SC.nextLine();
-            switch (command){
-                case "1":
-                    // 展示全部排片信息
-                    break;
-                case "2":
-                    // 上架电影信息
-                    break;
-                case "3":
-                    // 下回电影信息
-                    break;
-                case "4":
-                    // 修改电影信息
-                    break;
-                case "5":
-                    return; // 干掉方法
-                default:
-                    System.out.println("不存在该命令！！");
-                    break;
+            while (true) {
+                System.out.println("请输入您要操作的命令：");
+                String command = SYS_SC.nextLine();
+                switch (command){
+                    case "1":
+                        // 展示全部排片信息
+                        break;
+                    case "2":
+                        // 上架电影信息
+                        break;
+                    case "3":
+                        // 下回电影信息
+                        break;
+                    case "4":
+                        // 修改电影信息
+                        break;
+                    case "5":
+                        return; // 干掉方法
+                    default:
+                        System.out.println("不存在该命令！！");
+                        break;
+                }
             }
         }
     }
@@ -195,6 +199,38 @@ public class MovieSystem {
         普通用户操作界面
      */
     private static void showCustomerMain() {
+        System.out.println("===================黑马电影客户界面=====================");
+        System.out.println(loginUser.getLoginName() + (loginUser.getSex() == '男' ? "先生": "女士")
+                + "欢迎您进入系统");
+        System.out.println("1. 展示全部影片信息功能");
+        System.out.println("2. 根据电影名称查询电影信息");
+        System.out.println("3. 评分功能");
+        System.out.println("4. 购票功能");
+        System.out.println("5. 退出");
+
+        while (true) {
+            System.out.println("请输入您要操作的命令：");
+            String command = SYS_SC.nextLine();
+            switch (command){
+                case "1":
+                    // 展示全部影片信息功能
+                    break;
+                case "2":
+                    // 根据电影名称查询电影信息
+                    break;
+                case "3":
+                    // 评分功能
+                    break;
+                case "4":
+                    // 购票功能
+                    break;
+                case "5":
+                    return; // 干掉方法
+                default:
+                    System.out.println("不存在该命令！！");
+                    break;
+            }
+        }
     }
 
     /**
