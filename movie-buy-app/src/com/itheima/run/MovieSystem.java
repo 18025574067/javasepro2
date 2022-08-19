@@ -175,6 +175,7 @@ public class MovieSystem {
                 switch (command){
                     case "1":
                         // 展示全部排片信息
+                        showBusinessInfos();
                         break;
                     case "2":
                         // 上架电影信息
@@ -192,6 +193,21 @@ public class MovieSystem {
                         break;
                 }
             }
+        }
+    }
+
+    /**
+        展示商家的详细信息与排片情况
+     */
+    private static void showBusinessInfos() {
+        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息: Map<Business, List<Movie>> ALL_MOVIES.
+        Business business = (Business)loginUser;
+        System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone() + "\t\t地址：" + business.getAddress());
+        List<Movie> movies = ALL_MOVIES.get(business);
+        System.out.println("片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t余票数量\t\t放映时间");
+        for (Movie movie : movies) {
+            System.out.println(movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime() + "\t\t"
+                    + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber() + "\t\t" + movie.getStartTime());
         }
     }
 
