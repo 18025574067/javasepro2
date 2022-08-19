@@ -36,6 +36,10 @@ public class MovieSystem {
 
     // 扫描器
     public static final Scanner SYS_SC = new Scanner(System.in);
+
+    // 当前登录用户
+    public static User loginUser;
+
     /**
         3. 准备一些测试数据。
      */
@@ -132,6 +136,7 @@ public class MovieSystem {
                 // 3. 判断密码是否正确
                 if (u.getPassWord().equals(passWord)){
                     // 登录成功了
+                    loginUser = u;
                     // 判断是普通用户还是商家
                     if (u instanceof Customer){
                         // 普通用户
@@ -141,7 +146,6 @@ public class MovieSystem {
                         showBusinessMain();
                     }
                     return;
-
                 }else {
                     System.out.println("密码错误，请确认！");
                 }
@@ -157,8 +161,6 @@ public class MovieSystem {
     private static void showBusinessMain() {
         while (true){
             System.out.println("================黑马电影商家界面================");
-            System.out.println(getUserByLoginName().getUserName()+(getUserByLoginName().getSex() == '男'? "先生": "女士")
-                + "您好，请您选择商家操作的功能：");
             System.out.println("1. 展示详情");
             System.out.println("2. 上架电影");
             System.out.println("3. 下架电影");
@@ -170,21 +172,17 @@ public class MovieSystem {
             switch (command){
                 case "1":
                     // 展示全部排片信息
-                    queryMySelf();
                     break;
                 case "2":
                     // 上架电影信息
-                    addMovies();
                     break;
                 case "3":
                     // 下回电影信息
-                    deleteMovies();
                     break;
                 case "4":
                     // 修改电影信息
                     break;
                 case "5":
-                    System.out.println(getUserByLoginName().getUserName() + "您好，您成功退出了系统！" );
                     return; // 干掉方法
                 default:
                     System.out.println("不存在该命令！！");
@@ -193,21 +191,20 @@ public class MovieSystem {
         }
     }
 
-    private static void queryMySelf() {
-    }
-
     /**
         普通用户操作界面
      */
     private static void showCustomerMain() {
     }
 
+    /**
+        判断当前登录用户是否己注册用户
+     */
     public static User getUserByLoginName(String loginName){
         for (User user : ALL_USERS) {
             // 判断这个用户是否我们想要的
             if (user.getLoginName().equals(loginName)){
                 return user;
-
             }
         }
         return null; // 查无此人。
