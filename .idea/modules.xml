@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/day03-oop-demo/day03-oop-demo.iml" filepath="$PROJECT_DIR$/day03-oop-demo/day03-oop-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/logback-app/logback-app.iml" filepath="$PROJECT_DIR$/logback-app/logback-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/movie-app/movie-app.iml" filepath="$PROJECT_DIR$/movie-app/movie-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/movie-buy-app/movie-buy-app.iml" filepath="$PROJECT_DIR$/movie-buy-app/movie-buy-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/oop-app1/oop-app1.iml" filepath="$PROJECT_DIR$/oop-app1/oop-app1.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort-app/sort-app.iml" filepath="$PROJECT_DIR$/sort-app/sort-app.iml" />
