@@ -155,6 +155,45 @@ public class MovieSystem {
         商家后台操作界面
      */
     private static void showBusinessMain() {
+        while (true){
+            System.out.println("================黑马电影商家界面================");
+            System.out.println(getUserByLoginName().getUserName()+(getUserByLoginName().getSex() == '男'? "先生": "女士")
+                + "您好，请您选择商家操作的功能：");
+            System.out.println("1. 展示详情");
+            System.out.println("2. 上架电影");
+            System.out.println("3. 下架电影");
+            System.out.println("4. 修改电影");
+            System.out.println("5. 退出");
+
+            System.out.println("请输入您要操作的命令：");
+            String command = SYS_SC.nextLine();
+            switch (command){
+                case "1":
+                    // 展示全部排片信息
+                    queryMySelf();
+                    break;
+                case "2":
+                    // 上架电影信息
+                    addMovies();
+                    break;
+                case "3":
+                    // 下回电影信息
+                    deleteMovies();
+                    break;
+                case "4":
+                    // 修改电影信息
+                    break;
+                case "5":
+                    System.out.println(getUserByLoginName().getUserName() + "您好，您成功退出了系统！" );
+                    return; // 干掉方法
+                default:
+                    System.out.println("不存在该命令！！");
+                    break;
+            }
+        }
+    }
+
+    private static void queryMySelf() {
     }
 
     /**
