@@ -7,6 +7,7 @@ import com.itheima.bean.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -188,14 +189,18 @@ public class MovieSystem {
                         break;
                     case "2":
                         // 上架电影信息
+                        addMovie();
                         break;
                     case "3":
-                        // 下回电影信息
+                        // 下架电影信息
+                        deleteMovie();
                         break;
                     case "4":
                         // 修改电影信息
+                        updateMovie();
                         break;
                     case "5":
+                        System.out.println(loginUser.getLoginName() + ", 欢迎下次再来～～～");
                         return; // 干掉方法
                     default:
                         System.out.println("不存在该命令！！");
@@ -205,10 +210,74 @@ public class MovieSystem {
         }
     }
 
+    private static void updateMovie() {
+        System.out.println("=================影片修改===================");
+
+    }
+
+    private static void deleteMovie() {
+        System.out.println("=================影片下架===================");
+        Business business = (Business)loginUser;
+        List<Movie> movies = ALL_MOVIES.get(business);
+        if (movies.size() == 0){
+            System.out.println("当前无排片！！");
+            return;
+        }else {
+
+        }
+
+
+    }
+
+    /**
+        商家上架电影
+        Map<Business,List<Movie>> ALL_MOVIES.
+        u1 = [p1, p2, p3]
+        u2 = [p1, p2, p3]
+
+     */
+    private static void addMovie() {
+        System.out.println("=================影片上架===================");
+
+        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息: Map<Business,List<Movie>> ALL_MOVIES.
+        Business business = (Business)loginUser;
+        List<Movie> movies = ALL_MOVIES.get(business);
+
+        System.out.println("请输入新片名：");
+        String name = SYS_SC.nextLine();
+        System.out.println("请输入主演：");
+        String actor = SYS_SC.nextLine();
+        System.out.println("请输入时长：");
+        String time = SYS_SC.nextLine();
+        System.out.println("请输入票价：");
+        String price = SYS_SC.nextLine();
+        System.out.println("请输入票数：");
+        String totalNumber = SYS_SC.nextLine();
+        while (true) {
+            try {
+                System.out.println("请输入影片放映时间：");
+                String startTime = SYS_SC.nextLine();
+                // public Movie(String name, String actor, double price, double time, int number, Date startTime)
+                Movie movie = new Movie(name, actor, Double.valueOf(time), Double.valueOf(price), Integer.valueOf(totalNumber), sdf.parse(startTime));
+                movies.add(movie);
+                System.out.println("您已经成功上架了: 《" + movie.getName() + "》");
+                return; // 直接退出去。
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+                LOGGER.error("时间解析出问题，请确认！！");
+            }
+        }
+
+    }
+
     /**
         展示商家的详细信息与排片情况
      */
     private static void showBusinessInfos() {
+        System.out.println("=================商家详情界面===================");
+        LOGGER.info(loginUser.getLoginName() + " 查看了自己的详情。");
+
         // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息:
         // Map<Business,List<Movie>> ALL_MOVIES.
         Business business = (Business)loginUser;
@@ -216,12 +285,14 @@ public class MovieSystem {
                 + business.getAddress());
         List<Movie> movies = ALL_MOVIES.get(business);
         if (movies.size() > 0) {
-            System.out.println("片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t余票数量\t\t放映时间");
+            System.out.println("片名\t\t\t\t主演\t\t\t时长\t\t\t评分\t\t票价\t\t\t余票\t\t放映时间");
             for (Movie movie : movies) {
-                System.out.println(movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime()
+                System.out.println(movie.getName() + "\t\t" + movie.getActor() + "\t\t" + movie.getTime()
                         + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber()
                         + "\t\t" + sdf.format(movie.getStartTime()));
             }
+        }else {
+            System.out.println("店铺当前无影片上架。");
         }
     }
 
