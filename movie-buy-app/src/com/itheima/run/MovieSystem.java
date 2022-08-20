@@ -101,7 +101,6 @@ public class MovieSystem {
 
     public static void main(String[] args) {
         showMain();
-
     }
 
     /**
@@ -112,13 +111,14 @@ public class MovieSystem {
             System.out.println("===============黑马电影首页===================");
             System.out.println("1. 登录");
             System.out.println("2. 客户注册");
-            System.out.println("3. 商家登录");
+            System.out.println("3. 商家入驻");
             System.out.println("请输入操作命令：");
             String command = SYS_SC.nextLine();
             switch (command){
                 case "1":
                     // 登录
                     begin();
+
                     break;
                 case "2":
                     break;
