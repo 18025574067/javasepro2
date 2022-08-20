@@ -212,7 +212,64 @@ public class MovieSystem {
 
     private static void updateMovie() {
         System.out.println("=================影片修改===================");
+        Business business = (Business)loginUser;
+        List<Movie> movies = ALL_MOVIES.get(business);
+        if (movies.size() == 0){
+            System.out.println("当前无影片可以修改！！");
+            return;
+        }
+        // 2. 让用户选择需要修改的电影名称
+        while (true) {
+            System.out.println("请输入要修改的电影名称：");
+            String movieName = SYS_SC.nextLine();
 
+            // 3. 查询有没有这个电影对象
+            Movie movie = getMovieByName(movieName);
+            if (movie != null){
+                // 修改他
+                System.out.println("请输入修改后的片名：");
+                String name = SYS_SC.nextLine();
+                System.out.println("请输入修改后的主演：");
+                String actor = SYS_SC.nextLine();
+                System.out.println("请输入修改后的时长：");
+                String time = SYS_SC.nextLine();
+                System.out.println("请输入修改后的票价：");
+                String price = SYS_SC.nextLine();
+                System.out.println("请输入修改后的票数：");
+                String totalNumber = SYS_SC.nextLine();
+                while (true) {
+                    try {
+                        System.out.println("请输入修改后的影片放映时间：");
+                        String startTime = SYS_SC.nextLine();
+
+                        // public Movie(String name, String actor, double price, double time, int number, Date startTime)
+                        movie.setName(name);
+                        movie.setActor(actor);
+                        movie.setTime(Double.valueOf(time));
+                        movie.setPrice(Double.valueOf(price));
+                        movie.setNumber(Integer.valueOf(totalNumber));
+                        movie.setStartTime(sdf.parse(startTime));
+
+                        showBusinessInfos();
+                        return; // 直接退出去。
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        LOGGER.error("时间解析出问题，请确认！！");
+                    }
+                }
+            }else {
+                System.out.println("您的店铺没有上架该电影！");
+                System.out.println("请问继续修改： y/n");
+                String command = SYS_SC.nextLine();
+                switch (command){
+                    case "y":
+                        break;
+                    default:
+                        return;
+                }
+            }
+        }
     }
 
     private static void deleteMovie() {
@@ -222,12 +279,48 @@ public class MovieSystem {
         if (movies.size() == 0){
             System.out.println("当前无排片！！");
             return;
-        }else {
-
         }
+        // 2. 让用户选择需要下架的电影名称
+        while (true) {
+            System.out.println("请输入要下架的电影名称：");
+            String movieName = SYS_SC.nextLine();
 
-
+            // 3. 查询有没有这个电影对象
+            Movie movie = getMovieByName(movieName);
+            if (movie != null){
+                // 下架他
+                movies.remove(movie);
+                showBusinessInfos();
+                System.out.println("您当前店铺己下架了：" + movie.getName());
+                return;
+            }else {
+                System.out.println("您的店铺没有上架该电影！");
+                System.out.println("请问继续下架： y/n");
+                String command = SYS_SC.nextLine();
+                switch (command){
+                    case "y":
+                        break;
+                    default:
+                        System.out.println("好的。");
+                        return;
+                }
+            }
+        }
     }
+
+    /**
+        去查询当前商家下的排片。
+     */
+    private static Movie getMovieByName(String movieName) {
+        Business business = (Business)loginUser;
+        List<Movie> movies = ALL_MOVIES.get(business);
+        for (Movie movie : movies) {
+            if (movie.getName().contains(movieName)){
+                return movie;
+            }
+        }return null;
+    }
+
 
     /**
         商家上架电影
@@ -315,6 +408,7 @@ public class MovieSystem {
             switch (command){
                 case "1":
                     // 展示全部影片信息功能
+                    showAllMovies();
                     break;
                 case "2":
                     // 根据电影名称查询电影信息
@@ -332,6 +426,22 @@ public class MovieSystem {
                     break;
             }
         }
+    }
+
+    /**
+        展示全部商家的排片信息。
+     */
+    private static void showAllMovies() {
+        System.out.println("===================展示全部商家排片信息=========================");
+        ALL_MOVIES.forEach((business, movies) -> {
+            System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone() + "\t\t地址："+ business.getAddress());
+            System.out.println("\t\t\t片名\t\t\t\t主演\t\t\t时长\t\t\t评分\t\t票价\t\t\t余票\t\t放映时间");
+            for (Movie movie : movies) {
+                System.out.println("\t\t\t" +movie.getName() + "\t\t" + movie.getActor() + "\t\t" + movie.getTime()
+                        + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber()
+                        + "\t\t" + sdf.format(movie.getStartTime()));
+            }
+        });
     }
 
     /**
