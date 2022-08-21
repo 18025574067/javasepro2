@@ -31,6 +31,7 @@ public class MovieSystem {
      */
     public static final List<User> ALL_USERS = new ArrayList<>();
 
+
     /**
         2. 存储商家及其排片信息
             商家1 = [p1, p2, p3...]
@@ -54,7 +55,7 @@ public class MovieSystem {
      */
     static {
         Customer c = new Customer();
-        c.setLoginName("zyf888");
+        c.setLoginName("ldh888");
         c.setPassWord("123456");
         c.setUserName("黑马刘德华");
         c.setSex('男');
