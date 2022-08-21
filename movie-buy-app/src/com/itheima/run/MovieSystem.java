@@ -419,6 +419,7 @@ public class MovieSystem {
                     break;
                 case "4":
                     // 购票功能
+                    buyMovie();
                     break;
                 case "5":
                     return; // 干掉方法
@@ -430,7 +431,35 @@ public class MovieSystem {
     }
 
     /**
-        展示全部商家的排片信息。
+        用户购票功能
+     */
+    private static void buyMovie() {
+        showAllMovies();
+        System.out.println("===================用户购票功能=========================");
+        System.out.println("请输入要买票的门店：");
+        String shopName = SYS_SC.nextLine();
+        // 1. 查询是否存在该商家。
+        Business b = getBusinessByShopName(shopName);
+
+
+
+    }
+
+    /**
+        根据商家店铺名称查询商家对象
+     */
+    public static Business getBusinessByShopName(String shopName){
+        Set<Business> businesses = ALL_MOVIES.keySet();
+        for (Business business : businesses) {
+            if (business.getShopName().equals(shopName)){
+                return business;
+            }
+        }
+        return null;
+    }
+
+    /**
+        用户功能：展示全部商家的排片信息。
      */
     private static void showAllMovies() {
         System.out.println("===================展示全部商家排片信息=========================");
