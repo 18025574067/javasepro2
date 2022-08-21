@@ -468,6 +468,12 @@ public class MovieSystem {
                                 // 当前需要花费的金额
                                 double money = BigDecimal.valueOf(movie.getPrice()).multiply(
                                         BigDecimal.valueOf(buyNumber)).doubleValue();
+                                if (loginUser.getMoney() >= money){
+                                    // 终于可以买票了
+
+                                }else {
+                                    // 钱不够
+                                }
 
                             }else {
                                 System.out.println("票数不够！，你只能购买" + movie.getNumber() + "张");
