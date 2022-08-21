@@ -7,6 +7,7 @@ import com.itheima.bean.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -31,9 +32,8 @@ public class MovieSystem {
      */
     public static final List<User> ALL_USERS = new ArrayList<>();
 
-
     /**
-        2. 存储商家及其排片信息
+        2. 存储商家及其排片信息的容器：
             商家1 = [p1, p2, p3...]
             商家2 = [p1, p2, p3...]
      */
@@ -45,6 +45,7 @@ public class MovieSystem {
     // 当前登录用户
     public static User loginUser;
 
+    // 定义日期对象
     public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     // 日志
@@ -119,7 +120,6 @@ public class MovieSystem {
                 case "1":
                     // 登录
                     begin();
-
                     break;
                 case "2":
                     break;
@@ -243,7 +243,8 @@ public class MovieSystem {
                         System.out.println("请输入修改后的影片放映时间：");
                         String startTime = SYS_SC.nextLine();
 
-                        // public Movie(String name, String actor, double price, double time, int number, Date startTime)
+                        // public Movie(String name, String actor, double price,
+                        // double time, int number, Date startTime)
                         movie.setName(name);
                         movie.setActor(actor);
                         movie.setTime(Double.valueOf(time));
@@ -333,7 +334,8 @@ public class MovieSystem {
     private static void addMovie() {
         System.out.println("=================影片上架===================");
 
-        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息: Map<Business,List<Movie>> ALL_MOVIES.
+        // 根据商家对象(登录用户就是loginUser)，作为Map对象的键，提示对应的值就是排片信息:
+        // Map<Business,List<Movie>> ALL_MOVIES.
         Business business = (Business)loginUser;
         List<Movie> movies = ALL_MOVIES.get(business);
 
@@ -351,18 +353,18 @@ public class MovieSystem {
             try {
                 System.out.println("请输入影片放映时间：");
                 String startTime = SYS_SC.nextLine();
-                // public Movie(String name, String actor, double price, double time, int number, Date startTime)
-                Movie movie = new Movie(name, actor, Double.valueOf(time), Double.valueOf(price), Integer.valueOf(totalNumber), sdf.parse(startTime));
+                // public Movie(String name, String actor, double price,
+                // double time, int number, Date startTime)
+                Movie movie = new Movie(name, actor, Double.valueOf(time), Double.valueOf(price),
+                        Integer.valueOf(totalNumber), sdf.parse(startTime));
                 movies.add(movie);
                 System.out.println("您已经成功上架了: 《" + movie.getName() + "》");
                 return; // 直接退出去。
-
             } catch (ParseException e) {
                 e.printStackTrace();
                 LOGGER.error("时间解析出问题，请确认！！");
             }
         }
-
     }
 
     /**
@@ -381,9 +383,9 @@ public class MovieSystem {
         if (movies.size() > 0) {
             System.out.println("片名\t\t\t\t主演\t\t\t时长\t\t\t评分\t\t票价\t\t\t余票\t\t放映时间");
             for (Movie movie : movies) {
-                System.out.println(movie.getName() + "\t\t" + movie.getActor() + "\t\t" + movie.getTime()
-                        + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber()
-                        + "\t\t" + sdf.format(movie.getStartTime()));
+                System.out.println(movie.getName() + "\t\t" + movie.getActor() + "\t\t"
+                        + movie.getTime() + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice()
+                        + "\t\t" + movie.getNumber() + "\t\t" + sdf.format(movie.getStartTime()));
             }
         }else {
             System.out.println("店铺当前无影片上架。");
@@ -436,13 +438,81 @@ public class MovieSystem {
     private static void buyMovie() {
         showAllMovies();
         System.out.println("===================用户购票功能=========================");
-        System.out.println("请输入要买票的门店：");
-        String shopName = SYS_SC.nextLine();
-        // 1. 查询是否存在该商家。
-        Business b = getBusinessByShopName(shopName);
+        while (true) {
+            System.out.println("请输入要买票的门店：");
+            String shopName = SYS_SC.nextLine();
+            // 1. 查询是否存在该商家。
+            Business business = getBusinessByShopName(shopName);
+            if (business == null){
+                System.out.println("对不起，没有该店铺，请确认：");
+            }
+            // 2. 此商家的全部排片
+            List<Movie> movies = ALL_MOVIES.get(business);
+            // 3. 判断是否存在上映的电影
+            if (movies.size() > 0){
+                // 4. 开始进行选片购买
+                // 当前商铺，是否有该影片对象
+                while (true) {
+                    System.out.println("请输入要查询的电影名称：");
+                    String movieName = SYS_SC.nextLine();
+                    Movie movie = getMovieByShopName(business, movieName);
+                    if (movie != null){
+                        // 开始购买
+                        while (true) {
+                            System.out.println("请输入要购买的票数：");
+                            String number = SYS_SC.nextLine();
+                            int buyNumber = Integer.valueOf(number);
+                            // 判断电影是否有存票
+                            if (movie.getNumber() >= buyNumber){
+                                // 票数够
+                                // 当前需要花费的金额
+                                double money = BigDecimal.valueOf(movie.getPrice()).multiply(
+                                        BigDecimal.valueOf(buyNumber)).doubleValue();
 
+                            }else {
+                                System.out.println("票数不够！，你只能购买" + movie.getNumber() + "张");
+                                System.out.println("请问继续买票吗？");
+                                String command = SYS_SC.nextLine();
+                                switch (command){
+                                    case "y":
+                                        break;
+                                    default:
+                                        System.out.println("好的。");
+                                        return;
+                                }
+                            }
+                        }
+                    }else {
+                            System.out.println("电影名称有毛病！");
+                        }
+                }
 
+            }else {
+                System.out.println("对不起，电影院关门了！");
+                System.out.println("请问继续买票吗？");
+                String command = SYS_SC.nextLine();
+                switch (command){
+                    case "y":
+                        break;
+                    default:
+                        System.out.println("好的。");
+                        return;
+                }
+            }
+        }
+    }
 
+    /**
+        查询该商铺是否有在查询的电影，并返回。
+     */
+    public static Movie getMovieByShopName(Business business, String name){
+        List<Movie> movies = ALL_MOVIES.get(business);
+        for (Movie movie : movies) {
+            if (movie.getName().contains(name)){
+                return movie;
+            }
+        }
+        return null;
     }
 
     /**
@@ -464,12 +534,13 @@ public class MovieSystem {
     private static void showAllMovies() {
         System.out.println("===================展示全部商家排片信息=========================");
         ALL_MOVIES.forEach((business, movies) -> {
-            System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone() + "\t\t地址："+ business.getAddress());
+            System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone()
+                    + "\t\t地址："+ business.getAddress());
             System.out.println("\t\t\t片名\t\t\t\t主演\t\t\t时长\t\t\t评分\t\t票价\t\t\t余票\t\t放映时间");
             for (Movie movie : movies) {
-                System.out.println("\t\t\t" +movie.getName() + "\t\t" + movie.getActor() + "\t\t" + movie.getTime()
-                        + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber()
-                        + "\t\t" + sdf.format(movie.getStartTime()));
+                System.out.println("\t\t\t" +movie.getName() + "\t\t" + movie.getActor()
+                        + "\t\t" + movie.getTime() + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice()
+                        + "\t\t" + movie.getNumber() + "\t\t" + sdf.format(movie.getStartTime()));
             }
         });
     }
