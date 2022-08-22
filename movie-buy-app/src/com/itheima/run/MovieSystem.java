@@ -68,6 +68,7 @@ public class MovieSystem {
         c1.setPassWord("123456");
         c1.setUserName("黑马关之琳");
         c1.setSex('女');
+        c1.setMoney(2000);
         c1.setPhone("111111");
         ALL_USERS.add(c1);
 
@@ -323,7 +324,6 @@ public class MovieSystem {
         }return null;
     }
 
-
     /**
         商家上架电影
         Map<Business,List<Movie>> ALL_MOVIES.
@@ -338,15 +338,14 @@ public class MovieSystem {
         // Map<Business,List<Movie>> ALL_MOVIES.
         Business business = (Business)loginUser;
         List<Movie> movies = ALL_MOVIES.get(business);
-
         System.out.println("请输入新片名：");
         String name = SYS_SC.nextLine();
         System.out.println("请输入主演：");
         String actor = SYS_SC.nextLine();
-        System.out.println("请输入时长：");
-        String time = SYS_SC.nextLine();
         System.out.println("请输入票价：");
         String price = SYS_SC.nextLine();
+        System.out.println("请输入时长：");
+        String time = SYS_SC.nextLine();
         System.out.println("请输入票数：");
         String totalNumber = SYS_SC.nextLine();
         while (true) {
@@ -355,7 +354,7 @@ public class MovieSystem {
                 String startTime = SYS_SC.nextLine();
                 // public Movie(String name, String actor, double price,
                 // double time, int number, Date startTime)
-                Movie movie = new Movie(name, actor, Double.valueOf(time), Double.valueOf(price),
+                Movie movie = new Movie(name, actor, Double.valueOf(price), Double.valueOf(time),
                         Integer.valueOf(totalNumber), sdf.parse(startTime));
                 movies.add(movie);
                 System.out.println("您已经成功上架了: 《" + movie.getName() + "》");
@@ -396,16 +395,15 @@ public class MovieSystem {
         普通用户操作界面
      */
     private static void showCustomerMain() {
-        System.out.println("===================黑马电影客户界面=====================");
-        System.out.println(loginUser.getLoginName() + (loginUser.getSex() == '男' ? "先生": "女士")
-                + "欢迎您进入系统");
-        System.out.println("1. 展示全部影片信息功能");
-        System.out.println("2. 根据电影名称查询电影信息");
-        System.out.println("3. 评分功能");
-        System.out.println("4. 购票功能");
-        System.out.println("5. 退出");
-
         while (true) {
+            System.out.println("===================黑马电影客户界面=====================");
+            System.out.println(loginUser.getLoginName() + (loginUser.getSex() == '男' ? "先生": "女士")
+                    + "欢迎您进入系统" + "\t\t余额：" + loginUser.getMoney());
+            System.out.println("1. 展示全部影片信息功能");
+            System.out.println("2. 根据电影名称查询电影信息");
+            System.out.println("3. 评分功能");
+            System.out.println("4. 购票功能");
+            System.out.println("5. 退出");
             System.out.println("请输入您要操作的命令：");
             String command = SYS_SC.nextLine();
             switch (command){
@@ -470,14 +468,30 @@ public class MovieSystem {
                                         BigDecimal.valueOf(buyNumber)).doubleValue();
                                 if (loginUser.getMoney() >= money){
                                     // 终于可以买票了
-
+                                    System.out.println("您成功购买了" + movie.getName() + buyNumber
+                                            + "张电影票，总金额为：" + movie.getPrice() * buyNumber
+                                            + "余票：" + movie.getNumber() + "余额：" + loginUser.getMoney());
+                                    // 更新余额, 余票
+                                    loginUser.setMoney(loginUser.getMoney() - money);
+                                    business.setMoney(business.getMoney() + money);
+                                    movie.setNumber(movie.getNumber() - buyNumber);
+                                    return;
                                 }else {
                                     // 钱不够
+                                    System.out.println("余额不足！！");
+                                    System.out.println("请问继续买票吗？ y/n");
+                                    String command = SYS_SC.nextLine();
+                                    switch (command){
+                                        case "y":
+                                            break;
+                                        default:
+                                            System.out.println("好的。");
+                                            return;
+                                    }
                                 }
-
                             }else {
                                 System.out.println("票数不够！，你只能购买" + movie.getNumber() + "张");
-                                System.out.println("请问继续买票吗？");
+                                System.out.println("请问继续买票吗？ y/n");
                                 String command = SYS_SC.nextLine();
                                 switch (command){
                                     case "y":
@@ -492,10 +506,9 @@ public class MovieSystem {
                             System.out.println("电影名称有毛病！");
                         }
                 }
-
             }else {
                 System.out.println("对不起，电影院关门了！");
-                System.out.println("请问继续买票吗？");
+                System.out.println("请问继续买票吗？ y/n");
                 String command = SYS_SC.nextLine();
                 switch (command){
                     case "y":
@@ -541,7 +554,7 @@ public class MovieSystem {
         System.out.println("===================展示全部商家排片信息=========================");
         ALL_MOVIES.forEach((business, movies) -> {
             System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone()
-                    + "\t\t地址："+ business.getAddress());
+                    + "\t\t地址："+ business.getAddress() + "\t\t余额：" + business.getMoney());
             System.out.println("\t\t\t片名\t\t\t\t主演\t\t\t时长\t\t\t评分\t\t票价\t\t\t余票\t\t放映时间");
             for (Movie movie : movies) {
                 System.out.println("\t\t\t" +movie.getName() + "\t\t" + movie.getActor()
