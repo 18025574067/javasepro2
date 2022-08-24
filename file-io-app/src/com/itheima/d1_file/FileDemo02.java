@@ -1,6 +1,7 @@
 package com.itheima.d1_file;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 
 /**
     目标：File类的获取功能的API
@@ -17,9 +18,16 @@ public class FileDemo02 {
         // a.获取它的绝对路径。
         System.out.println(f1.getAbsolutePath());
         // b.获取文件定义的时候使用的路径。
+        System.out.println(f1.getPath());
         // c.获取文件的名称：带后缀。
+        System.out.println(f1.getName());
         // d.获取文件的大小：字节个数
+        System.out.println(f1.length()); // 字节大小。
         // e.获取文件的最后修改时间。
-
+        long time = f1.lastModified();
+        System.out.println("最后修改时间为：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:sss").format(time));
+        // f.判断文件对象是文件还是文件夹
+        System.out.println(f1.isFile()); // false
+        System.out.println(f1.isDirectory()); // true
     }
 }
