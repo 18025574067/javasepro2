@@ -5,11 +5,13 @@ import java.io.IOException;
 
 /**
     目标：去/home/目录 下找到/home/hyb/文档/DR.exe文件。
+        /opt/kingsoft/wps-office/office6/wps
  */
 public class RecursionDemo05 {
     public static void main(String[] args) {
         // 2. 传入目录和文件名
         searchFile(new File("/home/hyb/音乐"), "安和桥");
+        searchFile(new File("/opt/kingsoft/"), "wps");
     }
 
     /**
