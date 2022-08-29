@@ -2,6 +2,7 @@ package com.itheima.d2_recursion;
 
 /**
     目标：递归的算法和执行流程
+    1-n阶乘。
  */
 public class RecursionDemo02 {
     public static void main(String[] args) {
