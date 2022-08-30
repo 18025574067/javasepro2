@@ -10,8 +10,9 @@ import java.io.IOException;
 public class RecursionDemo05 {
     public static void main(String[] args) {
         // 2. 传入目录和文件名
-        searchFile(new File("/home/hyb/音乐"), "安和桥");
-        searchFile(new File("/opt/kingsoft/"), "wps");
+//        searchFile(new File("/home/hyb/音乐"), "安和桥");
+//        searchFile(new File("/opt/kingsoft/"), "wps");
+        searchFile(new File("C:\\Users\\hyb\\Documents\\javasepromax"), "Movie.java");
     }
 
     /**
