@@ -14,5 +14,10 @@ public class Test {
         byte[] bytes = name.getBytes("GBK"); // 指定编码（GBK）。
         System.out.println(Arrays.toString(bytes));
         System.out.println(bytes.length);
+
+        // 2. 解码：把字节转换成对应的中文形式（编码前与编码后必须一致，否则乱码！）
+//        String rs = new String(bytes); // 默认为UTF-8，乱码。
+        String rs = new String(bytes, "GBK"); // 指定为GBK编码。
+        System.out.println(rs);
     }
 }
