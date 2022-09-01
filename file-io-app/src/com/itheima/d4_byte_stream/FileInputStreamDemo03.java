@@ -14,10 +14,14 @@ public class FileInputStreamDemo03 {
         InputStream is = new FileInputStream(f);
 
         // 2. 定义一个字节数组刚好与文件大小一样大。
-        byte[] butter = new byte[(int) f.length()];
-        int len = is.read(butter);
-        System.out.println("读取了几个字节：" + len);
-        System.out.println("文件的大小：" + f.length());
+//        byte[] butter = new byte[(int) f.length()];
+//        int len = is.read(butter);
+//        System.out.println("读取了几个字节：" + len);
+//        System.out.println("文件的大小：" + f.length());
+//        System.out.println(new String(butter));
+
+        // 读取全部字节数组。
+        byte[] butter = is.readAllBytes();
         System.out.println(new String(butter));
 
 
