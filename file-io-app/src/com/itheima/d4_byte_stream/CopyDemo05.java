@@ -27,8 +27,6 @@ public class CopyDemo05 {
             os.close();
             is.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
