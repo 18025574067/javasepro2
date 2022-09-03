@@ -22,6 +22,7 @@ public class CopyDemo05 {
             while ((len = is.read(buffer)) != -1){
                 os.write(buffer, 0, len);
             }
+            System.out.println("复制完成了！");
 
             // 关闭资源。
             os.close();
