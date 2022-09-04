@@ -58,6 +58,7 @@ public class TryCatchFinallyDemo01 {
     public static int test(int a, int b){
         try {
             int c = a / b;
+            System.exit(0);
             return c;
         } catch (Exception e) {
             e.printStackTrace();
