@@ -3,7 +3,7 @@ package com.itheima.d5_resource;
 import java.io.*;
 
 /**
-    目标：学会使用finally释放资源。java7
+    目标：JDK7释放资源的方法。
  */
 public class TryCatchResourceDemo02 {
     public static void main(String[] args) throws Exception {
