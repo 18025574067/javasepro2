@@ -27,6 +27,12 @@ public class FileReaderDemo02 {
         // 1. 创建一个字符输入流
         Reader fr = new FileReader("file-io-app/src/data5.txt");
 
-
+        // 2. 用循环，每次读取一个字符数组的数据
+        char[] buffer = new char[1024]; // 1024个字符。
+        int len;
+        while ((len = fr.read(buffer)) != -1){
+            String rs = new String(buffer, 0, len);
+            System.out.print(rs);
+        }
     }
 }
