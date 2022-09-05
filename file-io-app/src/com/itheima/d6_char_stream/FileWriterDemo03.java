@@ -31,6 +31,15 @@ public class FileWriterDemo03 {
         fw.write("\r\n"); //换行
 
         // d. public void write(String c, int pos, int len):写字符串的一部分出去
+        fw.write("abc我是中国人", 0, 3);
+        fw.write("\r\n"); //换行
+
+
+        // e. public void write(char[] buffer, int pos, int len):写字符数组的一部分出去
+        fw.write(buffer1, 5, 8);
+
+//        fw.flush(); // 刷新后可以继续写入。
+        fw.close(); // 关闭包含刷新，但关闭后流不能操作
 
     }
 }
