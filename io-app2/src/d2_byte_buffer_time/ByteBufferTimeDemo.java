@@ -24,6 +24,10 @@ public class ByteBufferTimeDemo {
         // copy04(); // 缓冲流一个一个字节数组复制
 
     }
+
+    private void copy01(){
+
+    }
 }
 
 
