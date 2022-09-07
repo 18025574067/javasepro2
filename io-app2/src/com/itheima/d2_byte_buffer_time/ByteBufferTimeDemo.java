@@ -1,4 +1,4 @@
-package d2_byte_buffer_time;
+package com.itheima.d2_byte_buffer_time;
 
 import java.io.*;
 
@@ -118,19 +118,3 @@ public class ByteBufferTimeDemo {
         System.out.println("使用低级的字节流按照一个一个字节的形式复制文件耗时：" + (endTime-startTime)/1000.0 + "s");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
