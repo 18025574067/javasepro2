@@ -1,6 +1,9 @@
 package d2_byte_buffer_time;
 
+import java.io.*;
+
 /**
+        (1)使用低级的字节流按照一个一个字节的形式复制文件
         (2)使用低级的字节流按照一个一个字节数组的形式复制文件。
         (3)使用高级的缓冲字节流按照一个一个字节的形式复制文件。
         (4)使用高级的缓冲字节流按照一个一个字节数组的形式复制文件。
@@ -13,20 +16,80 @@ package d2_byte_buffer_time;
 
  */
 public class ByteBufferTimeDemo {
-    private static final String SRC_FILE = "D:\\course\\基础加强\\day08-日志框架\\视频\\14、用户购票功能.avi";
-    private static final String DEST_FILE = "D:\\course\\";
-
+    private static final String SRC_FILE = "D:\\音乐U盘8G\\a.流行歌曲MV        （35部）\\33 许佳慧 - 预谋.avi";
+    private static final String DEST_FILE = "D:\\";
 
     public static void main(String[] args) {
-        // copy01(); // 使用低级的字节流按照一个一个字节的形式复制文件
-        // copy02(); // 使用低级的字节流按照一个一个字节数组的形式复制文件
-        // copy03(); // 缓冲流一个一个字节复制
+//         copy01(); // 使用低级的字节流按照一个一个字节的形式复制文件
+         copy02(); // 使用低级的字节流按照一个一个字节数组的形式复制文件
+         copy03(); // 缓冲流一个一个字节复制
         // copy04(); // 缓冲流一个一个字节数组复制
-
     }
 
-    private void copy01(){
+    private static void copy03() {
+        long startTime = System.currentTimeMillis();
+        try (
+            // 1. 创建一个字节输入流与源文件连接
+            InputStream is = new FileInputStream(SRC_FILE);
+            // a. 把原始的字节输入流包装成高级的缓冲字节输入流
+            InputStream bis = new BufferedInputStream(is);
+            // 2. 创建一个字节输出流与目标文件连接
+            OutputStream os = new FileOutputStream(DEST_FILE +  "a3.avi");
+            // b. 把字节输出流包装成高级的缓冲字节输出流管道。
+            OutputStream bos = new BufferedOutputStream(os);
+            ){
+            // 3. 定义一个变量记录每次读取的字节（一个一个字节的读写）
+            int b;
+            while ((b =is.read()) != -1){
+                os.write(b);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用缓冲字节流按照一个一个字节的形式复制文件耗时：" + (endTime-startTime)/1000.0 + "s");
+    }
 
+    private static void copy02() {
+        long startTime = System.currentTimeMillis();
+        try (
+            // 这里只能放资源对象，用完会自动关闭，自动调用close方法关闭资源（即使出现异常也会做关闭操作）
+            // 1. 创建一个字节输入流与源文件连接
+            InputStream is = new FileInputStream(SRC_FILE);
+            // 2. 创建一个字节输出流与目标文件连接
+            OutputStream os = new FileOutputStream(DEST_FILE + "a2.avi");
+             ){
+            // 3. 定义一个字节数组转移数据
+            byte[] buffer = new byte[1024];
+            int len; // 记录每次读取的数据长度。
+            while ((len = is.read(buffer)) != -1){
+                os.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用低级的字节流按照一个一个字节数组的形式复制文件耗时：" + (endTime-startTime)/1000.0 + "s");
+    }
+
+    private static void copy01(){
+        long startTime = System.currentTimeMillis();
+        try(
+            // 1. 使用原始的字节输入流连接源文件
+            InputStream is = new FileInputStream(SRC_FILE);
+            // 2. 使用原始字节输出流连接目标文件
+            OutputStream os = new FileOutputStream(DEST_FILE + "a1.mp3");
+        ){
+            // 3. 定义一个变量记录每次读取的字节（一个一个字节的读写）
+            int b;
+            while ((b =is.read()) != -1){
+                os.write(b);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("使用低级的字节流按照一个一个字节的形式复制文件耗时：" + (endTime-startTime)/1000.0 + "s");
     }
 }
 
