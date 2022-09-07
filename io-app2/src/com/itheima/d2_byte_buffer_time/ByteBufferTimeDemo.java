@@ -17,9 +17,9 @@ import java.io.*;
  */
 public class ByteBufferTimeDemo {
 //    private static final String SRC_FILE = "E:\\MP3_1\\彭筝-太想念.mp3";
-    private static final String SRC_FILE = "/home/hyb/视频/[富士山].rmvb";
+    private static final String SRC_FILE = "io-app2/src/相位仪.mp3";
 //    private static final String DEST_FILE = "D:\\";
-    private static final String DEST_FILE = "/home/hyb/视频/";
+    private static final String DEST_FILE = "io-app2/src/";
 
     public static void main(String[] args) {
 //         copy01(); // 使用低级的字节流按照一个一个字节的形式复制文件，慢得让人简直无法忍受，直接被淘汰。56.126s
@@ -37,7 +37,7 @@ public class ByteBufferTimeDemo {
                 // a. 把原始的字节输入流包装成高级的缓冲字节输入流
                 InputStream bis = new BufferedInputStream(is);
                 // 2. 创建一个字节输出流与目标文件连接
-                OutputStream os = new FileOutputStream(DEST_FILE +  "a4.rmvb");
+                OutputStream os = new FileOutputStream(DEST_FILE +  "a4.mp3");
                 // b. 把字节输出流包装成高级的缓冲字节输出流管道。
                 OutputStream bos = new BufferedOutputStream(os);
         ){
@@ -62,7 +62,7 @@ public class ByteBufferTimeDemo {
             // a. 把原始的字节输入流包装成高级的缓冲字节输入流
             InputStream bis = new BufferedInputStream(is);
             // 2. 创建一个字节输出流与目标文件连接
-            OutputStream os = new FileOutputStream(DEST_FILE +  "a3.rmvb");
+            OutputStream os = new FileOutputStream(DEST_FILE +  "a3.mp3");
             // b. 把字节输出流包装成高级的缓冲字节输出流管道。
             OutputStream bos = new BufferedOutputStream(os);
             ){
@@ -85,7 +85,7 @@ public class ByteBufferTimeDemo {
             // 1. 创建一个字节输入流与源文件连接
             InputStream is = new FileInputStream(SRC_FILE);
             // 2. 创建一个字节输出流与目标文件连接
-            OutputStream os = new FileOutputStream(DEST_FILE + "a2.rmvb");
+            OutputStream os = new FileOutputStream(DEST_FILE + "a2.mp3");
              ){
             // 3. 定义一个字节数组转移数据
             byte[] buffer = new byte[1024];
@@ -106,7 +106,7 @@ public class ByteBufferTimeDemo {
             // 1. 使用原始的字节输入流连接源文件
             InputStream is = new FileInputStream(SRC_FILE);
             // 2. 使用原始字节输出流连接目标文件
-            OutputStream os = new FileOutputStream(DEST_FILE + "a1.rmvb");
+            OutputStream os = new FileOutputStream(DEST_FILE + "a1.mp3");
         ){
             // 3. 定义一个变量记录每次读取的字节（一个一个字节的读写）
             int b;
