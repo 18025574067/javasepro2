@@ -26,8 +26,8 @@ public class RecursionDemo06 {
 
         // 3. 把盖子和瓶子换算成钱
         // 统计本轮总的盖子数，和瓶子数
-        int coverNumber = lastCoverNumber + buyNumber;
-        int bottleNumber = lastBottleNumber + buyNumber;
+        int coverNumber = lastCoverNumber + buyNumber; // Cover盖子
+        int bottleNumber = lastBottleNumber + buyNumber; // Bottle瓶子
 
 
         // 统计可以换算的钱
