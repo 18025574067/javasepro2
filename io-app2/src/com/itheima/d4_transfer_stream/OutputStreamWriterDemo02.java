@@ -19,10 +19,6 @@ public class OutputStreamWriterDemo02 {
         bw.write("我爱你中国3～～～～");
         bw.write("我爱你中国4～～～～");
         bw.newLine();
-
-
-
         bw.close();
-
     }
 }
