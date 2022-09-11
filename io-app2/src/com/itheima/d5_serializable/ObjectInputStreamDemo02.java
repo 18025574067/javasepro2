@@ -1,11 +1,13 @@
 package com.itheima.d5_serializable;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 
 /**
     目标：学会对象反序列化，使用对象输入流把文件中的对象数据恢复成内存中的JAVA对象。
+
+    对象如果要序列化，必须Serializable序列化接口。
+    序列化的版本与反序列化的版本必须是一致，否则会报错。
  */
 public class ObjectInputStreamDemo02 {
     public static void main(String[] args) throws Exception {
