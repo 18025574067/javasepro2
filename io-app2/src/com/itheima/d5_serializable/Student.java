@@ -6,9 +6,13 @@ import java.io.Serializable;
     对象如果要序列化，必须Serializable序列化接口。
  */
 public class Student implements Serializable {
+    // 申明序列化的版本号码。
+    // 序列化的版本与反序列化的版本必须是一致，否则会报错。
+    private static final long serialVersionUID = 1;
     private String name;
     private String loginName;
-    private String passWord;
+    // transient 修饰的成员变量不参加序列化
+    private transient String passWord;
     private int age;
 
     public Student(){
