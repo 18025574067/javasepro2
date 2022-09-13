@@ -1,5 +1,8 @@
 package com.itheima.d7_properties;
 
+import java.io.FileReader;
+import java.util.Properties;
+
 /**
     目标：Properties 读取属性文件中的键值对信息（读取）
     Properties 的方法：
@@ -16,8 +19,15 @@ package com.itheima.d7_properties;
 public class PropertiesDemo02 {
     public static void main(String[] args) throws Exception {
         // 需求： 使用Properties把键值对信息存入到属性文件中去。
+        Properties properties = new Properties();
+        System.out.println(properties);
 
+        // 加载属性文件中的键值比数据到属性对象properties中去
+        properties.load(new FileReader("io-app2/src/user.properties"));
+        System.out.println(properties);
 
-
+        // 一般是用来取值的。
+        String rs = properties.getProperty("xulei");
+        System.out.println(rs);
     }
 }
