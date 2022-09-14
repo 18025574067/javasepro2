@@ -29,5 +29,8 @@ public class PropertiesDemo02 {
         // 一般是用来取值的。
         String rs = properties.getProperty("xulei");
         System.out.println(rs);
+
+        String rs1 = properties.getProperty("heima");
+        System.out.println(rs1);
     }
 }
