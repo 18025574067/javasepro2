@@ -6,10 +6,12 @@ package com.itheima.d1_create;
  */
 public class ThreadDemo02 {
     public static void main(String[] args) {
-        // 3. 创建一个线程任务对象
+        // 3. 创建一个任务对象
         Runnable target = new MyRunnable();
-        // 4.
-        new Thread(target).start();
+        // 4. 把任务对象交给线程对象处理。
+        Thread t = new Thread(target);
+        // 5. 启动线程
+        t.start();
 
         for (int i = 0; i < 10; i++) {
             System.out.println("主线程执行：" + i);
@@ -29,12 +31,3 @@ class MyRunnable implements Runnable{
         }
     }
 }
-
-
-
-
-
-
-
-
-
