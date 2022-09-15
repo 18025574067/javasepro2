@@ -5,6 +5,7 @@ import java.util.concurrent.FutureTask;
 
 /**
     学会创建线程方式三：实现Callable接口，结合FutureTask完成。
+    可以在线程执行完毕后去获取线程执行的结果。
  */
 public class ThreadDemo03 {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class ThreadDemo03 {
         t2.start();
         
         try{
+            // 如果f1没有执行完毕，这里的get会等待直到线程1完毕才提取结果。 
             String rs1 = f1.get();
             System.out.println("第一个" + rs1);
         }catch(Exception e ){
