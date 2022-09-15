@@ -30,3 +30,9 @@ class MyCallable implements Callable<String>{
     return "子线程执行的结果是：" + sum;
     }
 }
+
+
+
+
+
+
