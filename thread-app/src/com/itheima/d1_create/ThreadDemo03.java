@@ -26,14 +26,14 @@ public class ThreadDemo03 {
         
         try{
             String rs1 = f1.get();
-            System.out.println(rs1);
+            System.out.println("第一个" + rs1);
         }catch(Exception e ){
             e.printStackTrace();
         }
 
         try{                         
             String rs2 = f2.get();   
-            System.out.println(rs2);                                        
+            System.out.println("第二个" + rs2);
         }catch(Exception e ){        
             e.printStackTrace();     
         }  
