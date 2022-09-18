@@ -1,12 +1,10 @@
 package com.itheima.d4_synchronized;
 
-import com.itheima.d3_thread_safe.Account;
-
 /**
     取钱的线程类。
  */
 public class DrawThread extends Thread{
-    private com.itheima.d3_thread_safe.Account acc;
+    private Account acc;
 
     public DrawThread(Account acc, String name){
         super(name);
