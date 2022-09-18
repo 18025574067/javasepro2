@@ -1,4 +1,4 @@
-package com.itheima.d3_thread_safe;
+package com.itheima.d4_synchronized;
 
 public class Account {
     private String name;
