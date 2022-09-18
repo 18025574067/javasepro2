@@ -11,6 +11,8 @@ public class ThreadDemo02 {
                 // 让线程进入休眠
                 // 段子：项目经理让我加上这一行代码，如果用户愿意交钱，我就注释掉。
                 Thread.sleep(3000);
+
+
             }
         }        
     }
