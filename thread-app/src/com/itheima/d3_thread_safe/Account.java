@@ -21,7 +21,10 @@ public class Account {
             System.out.println(name + "来取钱了，吐出了：" + money);
             // 3. 更新余额
             this.money -= money;
-            System.out.println("余额为：" + this.money);
+            System.out.println(name + "取钱后，余额为：" + this.money);
+        }else {
+            // 4. 余额不足
+            System.out.println(name + "来取钱，余额不足！！");
         }
     }
     public String getName() {
