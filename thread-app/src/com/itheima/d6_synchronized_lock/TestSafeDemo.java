@@ -1,4 +1,4 @@
-package com.itheima.d4_synchronized;
+package com.itheima.d6_synchronized_lock;
 
 /**
     需求：模拟取钱案例。
@@ -12,11 +12,5 @@ public class TestSafeDemo {
         new DrawThread(acc, "小明").start();
         new DrawThread(acc, "小红").start();
 
-
-        Account acc1 = new Account("ICBC-222", 100000);
-
-        // 2. 创建两个线程对象，代表小红和小明同时进来了
-        new DrawThread(acc1, "小黑").start();
-        new DrawThread(acc1, "小白").start();
     }
 }

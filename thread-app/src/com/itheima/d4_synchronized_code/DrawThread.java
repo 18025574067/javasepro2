@@ -1,4 +1,4 @@
-package com.itheima.d4_synchronized;
+package com.itheima.d4_synchronized_code;
 
 /**
     取钱的线程类。
