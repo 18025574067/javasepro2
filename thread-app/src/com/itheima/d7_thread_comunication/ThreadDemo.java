@@ -11,7 +11,9 @@ public class ThreadDemo {
         new DrawThread(acc, "小红").start();
 
         // 创建3个存钱线程，代表亲爹，干爹，岳父。
-
+        new DepositThread(acc, "亲爹").start();
+        new DepositThread(acc, "干爹").start();
+        new DepositThread(acc, "岳父").start();
 
     }
 }

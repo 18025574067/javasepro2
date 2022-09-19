@@ -21,6 +21,13 @@ public class Account {
             String name = Thread.currentThread().getName();
             if (this.money >= money){
                 // 钱够，可取
+                this.money -= money;
+                System.out.println(name + "来取钱" + money +"成功，余额为：" + this.money);
+                // 没钱了，
+                // 唤醒别人，等待自己。
+                this.notifyAll(); // 唤醒其他所以人。
+                this.wait(); // 锁对象，让当前线程进入等待
+
             }else {
                 // 钱不够，不可取
                 // 唤醒别人，等待自己。
@@ -50,4 +57,6 @@ public class Account {
     }
 
 
+    public void depositMoney(double money) {
+    }
 }
