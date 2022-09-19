@@ -28,11 +28,18 @@ public class Account {
         this.money = money;
     }
 
+    // 静态方法建议使用类名.class作为锁对象。
+//    public static void run(){
+//        synchronized (Account.class){
+//        }
+//    }
+
+    // 成员方法建议使用this作为锁对象。
     public void drawMoney(double money) {
         // 0. 先获取是谁来取钱，线程的名字就是人名
         String name = Thread.currentThread().getName();
         // 1. 判断余额是否足够
-        synchronized ("heima") {
+        synchronized (this) {
             if (this.money >= money) {
                 // 2. 取钱
                 System.out.println(name + "来取钱了，吐出了：" + money);
