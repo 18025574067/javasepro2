@@ -46,19 +46,16 @@ public class Account {
         try {
             String name = Thread.currentThread().getName();
             if (this.money == 0){
-                // 钱够，可取
                 this.money += money;
                 System.out.println(name + "来存" + money +"成功，余额为：" + this.money);
                 // 有钱了，
                 // 唤醒别人，等待自己。
                 this.notifyAll(); // 唤醒其他所以人。
                 this.wait(); // 锁对象，让当前线程进入等待
-
             }else {
-                // 钱够了，可取
-                // 唤醒别人，等待自己。
-                this.notifyAll(); // 唤醒其他所以人。
-                this.wait(); // 锁对象，让当前线程进入等待。要先唤醒别人，自己才能睡觉。
+                // 有钱，不用存
+                this.notifyAll();
+                this.wait();
             }
         } catch (Exception e) {
             e.printStackTrace();
