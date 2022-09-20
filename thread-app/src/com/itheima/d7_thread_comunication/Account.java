@@ -42,7 +42,7 @@ public class Account {
     /**
         存款
      */
-    public void depositMoney(double money) {
+    public synchronized void depositMoney(double money) {
         try {
             String name = Thread.currentThread().getName();
             if (this.money == 0){
