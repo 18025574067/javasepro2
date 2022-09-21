@@ -14,6 +14,5 @@ public class ThreadDemo {
         new DepositThread(acc, "亲爹").start();
         new DepositThread(acc, "干爹").start();
         new DepositThread(acc, "岳父").start();
-
     }
 }

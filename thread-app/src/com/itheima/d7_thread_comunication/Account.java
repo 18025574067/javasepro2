@@ -22,8 +22,6 @@ public class Account {
             if (this.money == 0){
                 this.money += money;
                 System.out.println(name + "来存" + money +"成功，余额为：" + this.money);
-                // 有钱了，
-                // 唤醒别人，等待自己。
             }
             this.notifyAll(); // 唤醒其他所以人。
             this.wait(); // 锁对象，让当前线程进入等待
@@ -44,9 +42,6 @@ public class Account {
                 // 钱够，可取
                 this.money -= money;
                 System.out.println(name + "来取钱" + money +"成功，余额为：" + this.money);
-                // 没钱了，
-                // 唤醒别人，等待自己。
-
             }
             this.notifyAll(); // 唤醒其他所以人。
             this.wait(); // 锁对象，让当前线程进入等待
@@ -54,8 +49,6 @@ public class Account {
             e.printStackTrace();
         }
     }
-
-
 
     public String getName() {
         return name;
@@ -72,7 +65,4 @@ public class Account {
     public void setMoney(double money) {
         this.money = money;
     }
-
-
-
 }
