@@ -15,7 +15,7 @@ public class DepositThread extends Thread{
             // 3个爸爸来存钱。
             acc.depositMoney(100000);
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
