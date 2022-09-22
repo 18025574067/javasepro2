@@ -29,13 +29,5 @@ public class ThreadPoolDemo01{
         pool.execute(target);
         pool.execute(target);
         pool.execute(target);
-
-        
     }
-
-
-
 }
-
-
-
