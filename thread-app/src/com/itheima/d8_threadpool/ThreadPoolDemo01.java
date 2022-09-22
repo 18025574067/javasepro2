@@ -11,23 +11,38 @@ public class ThreadPoolDemo01{
         // 1. 创建线程池对象
         /**
          ThreadPoolExecutor(int corePoolSize,
-         int maximumPoolSize,
-         long keepAliveTime,
-         TimeUnit unit,
-         BlockingQueue<Runnable> workQueue,
-         ThreadFactory threadFactory,
-         RejectedExecutionHandler handler)
+                             int maximumPoolSize,
+                             long keepAliveTime,
+                             TimeUnit unit,
+                             BlockingQueue<Runnable> workQueue,
+                             ThreadFactory threadFactory,
+                             RejectedExecutionHandler handler)
         */
         ExecutorService pool = new ThreadPoolExecutor(3, 5, 5,
-                TimeUnit.SECONDS, new ArrayBlockingQueue<>(5), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(5), Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
 
         // 2. 给任务让线程池处理
         Runnable target = new MyRunnable();
         pool.execute(target);
         pool.execute(target);
         pool.execute(target);
+
         pool.execute(target);
         pool.execute(target);
         pool.execute(target);
+        pool.execute(target);
+        pool.execute(target);
+
+        // 创建临时线程
+        pool.execute(target);
+        pool.execute(target);
+
+        // 不创建，拒绝策略被触发！
+//        pool.execute(target);
+
+        // 关闭线程池，开发中一般不使用。
+        pool.shutdownNow(); // 立即关闭线程池，会丢失任务。
+
     }
 }
