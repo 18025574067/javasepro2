@@ -17,7 +17,7 @@ class MyCallable implements Callable<String>{
 	for(int i = 1; i <= n; i++){
 	    sum += i;
 	}
-    return Thread.currentThread().getName() + "子线程执行的结果是：" + sum;
+    return Thread.currentThread().getName() + "线程执行1~" + n +"累加的结果是：" + sum;
     }
 }
 

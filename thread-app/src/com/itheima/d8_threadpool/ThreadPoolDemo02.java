@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  */
 
 public class ThreadPoolDemo02 {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
         // 1. 创建线程池对象
         /**
          ThreadPoolExecutor(int corePoolSize,
@@ -23,8 +23,22 @@ public class ThreadPoolDemo02 {
                 new ThreadPoolExecutor.AbortPolicy());
 
         // 2. 给任务让线程池处理
+        Future<String> f1 = pool.submit(new MyCallable(100));
+        Future<String> f2 = pool.submit(new MyCallable(200));
+        Future<String> f3 = pool.submit(new MyCallable(300));
+        Future<String> f4 = pool.submit(new MyCallable(400));
 
+        String rs = f1.get();
+        System.out.println(rs);
 
+        String rs1 = f2.get();
+        System.out.println(rs1);
+
+        String rs2 = f3.get();
+        System.out.println(rs2);
+
+        String rs3 = f4.get();
+        System.out.println(rs3);
 
         // 关闭线程池，开发中一般不使用。
 //        pool.shutdownNow(); // 立即关闭线程池，会丢失任务。
