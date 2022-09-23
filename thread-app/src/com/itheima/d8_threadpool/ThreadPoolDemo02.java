@@ -27,23 +27,12 @@ public class ThreadPoolDemo02 {
         Future<String> f2 = pool.submit(new MyCallable(200));
         Future<String> f3 = pool.submit(new MyCallable(300));
         Future<String> f4 = pool.submit(new MyCallable(400));
+        Future<String> f5 = pool.submit(new MyCallable(500));
 
-        String rs = f1.get();
-        System.out.println(rs);
-
-        String rs1 = f2.get();
-        System.out.println(rs1);
-
-        String rs2 = f3.get();
-        System.out.println(rs2);
-
-        String rs3 = f4.get();
-        System.out.println(rs3);
-
-        // 关闭线程池，开发中一般不使用。
-//        pool.shutdownNow(); // 立即关闭线程池，会丢失任务。
-
-        pool.shutdown();   // 会等待线程全部结束再关闭
-
+        System.out.println(f1.get());
+        System.out.println(f2.get());
+        System.out.println(f3.get());
+        System.out.println(f4.get());
+        System.out.println(f5.get());
     }
 }

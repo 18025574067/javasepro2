@@ -20,9 +20,3 @@ class MyCallable implements Callable<String>{
     return Thread.currentThread().getName() + "线程执行1~" + n +"累加的结果是：" + sum;
     }
 }
-
-
-
-
-
-
