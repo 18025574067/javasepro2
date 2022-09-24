@@ -12,6 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 public class TimerDemo02 {
     public static void main(String[] args) {
+
+//        Thread.State;
+
         // 1. 创建scheduledExecutorService线程池，做定时器
         ScheduledExecutorService pool = Executors.newScheduledThreadPool(3);
 
@@ -19,15 +22,29 @@ public class TimerDemo02 {
         pool.scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){
-                System.out.println(Thread.currentThread().getName() + "执行输出：AAA" + new Date());
+                System.out.println(Thread.currentThread().getName() + "执行输出：AAA ==> " + new Date());
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }, 0, 2, TimeUnit.SECONDS);
+ 
         pool.scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){
-                System.out.println(Thread.currentThread().getName() + "执行输出：BBB" + new Date());
+                System.out.println(Thread.currentThread().getName() + "执行输出：BBB ==> " + new Date());
+                System.out.println(10 / 0);
             }
-        }, 0, 3, TimeUnit.SECONDS);
+        }, 0, 2, TimeUnit.SECONDS);
+    
+        pool.scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                System.out.println(Thread.currentThread().getName() + "执行输出：CCC ==> " + new Date());
+            }
+        }, 0, 2, TimeUnit.SECONDS);
     }
 }
 
