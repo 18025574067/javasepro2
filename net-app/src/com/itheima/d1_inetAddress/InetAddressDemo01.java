@@ -1,5 +1,8 @@
 package com.itheima.d1_inetAddress;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
     目标：InetAddress类概述（了解）
         一个该类的对象就代表一个IP地址对象。
@@ -14,14 +17,23 @@ package com.itheima.d1_inetAddress;
             * 获得IP地址字符串
  */
 public class InetAddressDemo01 {
-    public static void main(String[] args) {
-        // 1. 获取梧桐地址对象
+    public static void main(String[] args) throws Exception {
+        // 1. 获取本机地址对象
+        InetAddress ip1 = InetAddress.getLocalHost();
+        System.out.println(ip1);  // hyb/192.168.0.113
+        System.out.println(ip1.getHostName()); // 主机名
+        System.out.println(ip1.getHostAddress()); // 局域网IP地址
 
         // 2. 获取域名IP地址
+        InetAddress ip2 = InetAddress.getByName("www.baidu.com");
+        System.out.println(ip2.getHostName());
+        System.out.println(ip2.getHostAddress());
 
         // 3. 获取公网IP对象。
-
+//        InetAddress ip3 = InetAddress.getByName("14.215.177.39");
+//        System.out.println(ip3.getHostName());
+//        System.out.println(ip3.getHostAddress());
         // 4. 判断是否能通： Ping 5s之前测试是否可能
-
+        System.out.println(ip2.isReachable(5000));
     }
 }
