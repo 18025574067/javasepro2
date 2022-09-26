@@ -21,12 +21,12 @@ public class ClientDemo01 {
             if ("exit".equals(msg)){
                 System.out.println("再见！");
                 socket.close();
-                break;
+                return;
             }
             // 2. 创建一个数据包封装数据（韭菜盘子）
             byte[] buffer = (msg + "\r\n").getBytes();
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length,
-                    InetAddress.getLocalHost(), 8080);
+                    InetAddress.getByName("255.255.255.255"), 9999);
 
             // 3. 发送数据出去
             socket.send(packet);

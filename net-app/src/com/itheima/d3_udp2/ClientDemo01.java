@@ -21,7 +21,7 @@ public class ClientDemo01 {
             if ("exit".equals(msg)){
                 System.out.println("再见！");
                 socket.close();
-                break;
+                return;
             }
             // 2. 创建一个数据包封装数据（韭菜盘子）
             byte[] buffer = (msg + "\r\n").getBytes();
