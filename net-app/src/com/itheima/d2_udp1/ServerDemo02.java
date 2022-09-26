@@ -7,6 +7,7 @@ import java.net.DatagramSocket;
  */
 public class ServerDemo02 {
     public static void main(String[] args) throws Exception {
+        System.out.println("========服务端启动========");
         // 1. 创建注册端对象，注册端口（人）
         DatagramSocket socket = new DatagramSocket(8888);
 
@@ -22,7 +23,8 @@ public class ServerDemo02 {
         socket.receive(packet);
 
         // 4. 输出数据
-        String rs = new String(buffer);
+        int length = packet.getLength();
+        String rs = new String(buffer, 0, length);
         System.out.println("接收到了：" +rs);
 
         // 5. 关闭连接

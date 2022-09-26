@@ -8,6 +8,8 @@ import java.net.InetAddress;
  */
 public class ClientDemo01 {
     public static void main(String[] args) throws Exception {
+        System.out.println("========客户端启动========");
+
         // 1. 创建发送端的对象，发送端自带默认的端口, 可不指定端口。
         DatagramSocket socket = new DatagramSocket(8889);
 
