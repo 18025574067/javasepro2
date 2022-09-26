@@ -15,7 +15,7 @@ public class ServerDemo02 {
          public DatagramPacket(byte buf[], int length) {
          this (buf, 0, length);
          */
-        byte[] buffer = new byte[10];
+        byte[] buffer = new byte[1024*64];
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
         // 3. 等待接收数据
