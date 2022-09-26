@@ -11,7 +11,7 @@ public class ClientDemo01 {
         System.out.println("========客户端启动========");
 
         // 1. 创建发送端的对象，发送端自带默认的端口, 可不指定端口。
-        DatagramSocket socket = new DatagramSocket(8889);
+        DatagramSocket socket = new DatagramSocket();
 
         // 2. 创建一个数据包封装数据（韭菜盘子）
         /** public DatagramPacket(byte buf[], int offset, int length,
@@ -21,7 +21,7 @@ public class ClientDemo01 {
          参数三：服务端的IP地址
          参数四：服务端的端口
          */
-        byte[] buffer = "我是一颗快乐的韭菜，你愿意吃我吗？".getBytes();
+        byte[] buffer = "我是一颗快乐的韭菜，你愿意吃我吗？\r\n".getBytes();
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length,
                 InetAddress.getLocalHost(), 8888);
 

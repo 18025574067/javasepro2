@@ -27,6 +27,13 @@ public class ServerDemo02 {
         String rs = new String(buffer, 0, length);
         System.out.println("接收到了：" +rs);
 
+        // 获取发送端的IP和端口
+        String ip = packet.getSocketAddress().toString();
+        System.out.println("对方的地址是：" + ip);
+
+        int port = packet.getPort();
+        System.out.println("对方的端口是：" + port);
+
         // 5. 关闭连接
         socket.close();
     }
