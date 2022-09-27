@@ -12,7 +12,7 @@ public class ServerDemo02 {
         MulticastSocket socket = new MulticastSocket(9999);
 
         // 把当前接收端加入到一个组播组中去，绑定对应的组播消息的组播IP。
-//        socket.joinGroup(InetAddress.getByName("244.0.1.1")); // 过期了
+//        socket.joinGroup(InetAddress.getByName("244.0.1.1")); // JDK14开始过期了
         socket.joinGroup(new InetSocketAddress(InetAddress.getByName("224.0.1.1"), 9999),
                 NetworkInterface.getByInetAddress(InetAddress.getLocalHost()));
 

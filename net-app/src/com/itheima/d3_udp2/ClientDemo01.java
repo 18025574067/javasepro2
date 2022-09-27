@@ -26,7 +26,7 @@ public class ClientDemo01 {
             // 2. 创建一个数据包封装数据（韭菜盘子）
             byte[] buffer = (msg + "\r\n").getBytes();
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length,
-                    InetAddress.getLocalHost(), 8080);
+                    InetAddress.getLocalHost(), 9999);
 
             // 3. 发送数据出去
             socket.send(packet);
