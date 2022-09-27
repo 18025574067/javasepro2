@@ -1,11 +1,12 @@
-package com.itheima.d6_socket1;
+package com.itheima.d7_socket2;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
-    目标：完成socket网络编程入门案例的客户端开发，实现一发一收。
+    目标：多发多收。
  */
 public class ClientDemo01 {
     public static void main(String[] args) {
@@ -21,9 +22,19 @@ public class ClientDemo01 {
             // 3. 把低级的字节输出流包装成高级的打印流
             PrintStream ps = new PrintStream(os);
 
-            // 4. 发送消息
-            ps.print("我是TCP的客户端，我已经与你对接");
-            ps.flush();
+            // 4. 一直发送消息
+            Scanner sc = new Scanner(System.in);
+            while (true){
+                System.out.println("请讲：");
+                String msg = sc.nextLine();
+                if ("exit".equals(msg)){
+                    System.out.println("再见！");
+                    ps.close();
+                    break;
+                }
+                ps.println(msg);
+                ps.flush();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

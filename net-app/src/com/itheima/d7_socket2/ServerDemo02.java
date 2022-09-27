@@ -1,4 +1,4 @@
-package com.itheima.d6_socket1;
+package com.itheima.d7_socket2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
