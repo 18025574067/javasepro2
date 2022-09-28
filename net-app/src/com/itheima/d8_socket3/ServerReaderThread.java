@@ -1,7 +1,6 @@
 package com.itheima.d8_socket3;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
@@ -27,7 +26,7 @@ public class ServerReaderThread extends Thread{
                 System.out.println(socket.getRemoteSocketAddress() + "说了：" + msg);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(socket.getRemoteSocketAddress() + "下线了");
         }
     }
 }
