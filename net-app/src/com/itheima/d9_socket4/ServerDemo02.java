@@ -1,6 +1,5 @@
 package com.itheima.d9_socket4;
 
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.*;
@@ -11,6 +10,15 @@ import java.util.concurrent.*;
 public class ServerDemo02 {
 
     // 使用静态变量记住一个线程对象
+    /**
+       public ThreadPoolExecutor(int corePoolSize,
+                                 int maximumPoolSize,
+                                 long keepAliveTime,
+                                 TimeUnit unit,
+                                 BlockingQueue<Runnable> workQueue,
+                                 ThreadFactory threadFactory,
+                                 RejectedExecutionHandler handler)
+     */
     private static ExecutorService pool = new ThreadPoolExecutor(3, 5,
             6, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2),
             Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
@@ -27,12 +35,12 @@ public class ServerDemo02 {
                 Socket socket = serverSocket.accept();
                 System.out.println(socket.getRemoteSocketAddress() + "上线了");
 
-
+                // 任务对象负责读取消息。
                 Runnable target = new ServerReaderRunnable(socket);
                 pool.execute(target);
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
