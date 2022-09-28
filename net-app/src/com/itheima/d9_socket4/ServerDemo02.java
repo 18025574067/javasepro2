@@ -1,15 +1,20 @@
 package com.itheima.d9_socket4;
 
-import com.itheima.d8_socket3.ServerReaderThread;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.*;
 
 /**
-    目标：开发Socket网络编程入门代码的服务端，实现接收消息。
+    拓展：使用线程池优化，实现通信
  */
 public class ServerDemo02 {
+
+    // 使用静态变量记住一个线程对象
+    private static ExecutorService pool = new ThreadPoolExecutor(3, 5,
+            6, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2),
+            Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+
     public static void main(String[] args) {
         System.out.println("==========服务端启动成功===========");
         try {
@@ -18,11 +23,14 @@ public class ServerDemo02 {
 
             // a. 定义一个死循环由主线程负责不断的接收客户端的socket连接请求，
             while (true){
-                // b. 每接到一个客户端socket管道，都要交给一个子线程负责读取。
+                // b. 每接到一个客户端socket管道，
                 Socket socket = serverSocket.accept();
                 System.out.println(socket.getRemoteSocketAddress() + "上线了");
-                // c. 开始创建独立线程处理socket管道。
-                new ServerReaderThread(socket).start();
+
+
+                Runnable target = new ServerReaderRunnable(socket);
+                pool.execute(target);
+
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,14 +1,14 @@
-package com.itheima.d8_socket3;
+package com.itheima.d9_socket4;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class ServerReaderThread extends Thread{
+public class ServerReaderRunnable implements Runnable{
     private Socket socket;
 
-    public ServerReaderThread(Socket socket){
+    public ServerReaderRunnable(Socket socket){
         this.socket = socket;
     }
     @Override

@@ -35,7 +35,6 @@ public class ClientDemo01 {
                 ps.println(msg);
                 ps.flush();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
