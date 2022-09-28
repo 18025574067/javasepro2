@@ -1,4 +1,4 @@
-package com.itheima.d9_socket4;
+package com.itheima.d10_socket5_sms;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

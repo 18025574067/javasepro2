@@ -1,4 +1,4 @@
-package com.itheima.d9_socket4;
+package com.itheima.d10_socket5_sms;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -38,7 +38,6 @@ public class ServerDemo02 {
                 // 任务对象负责读取消息。
                 Runnable target = new ServerReaderRunnable(socket);
                 pool.execute(target);
-
             }
         } catch (Exception e) {
             e.printStackTrace();

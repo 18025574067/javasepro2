@@ -1,4 +1,4 @@
-package com.itheima.d8_socket3;
+package com.itheima.d8_socket3_thread;
 
 import java.io.IOException;
 import java.net.ServerSocket;

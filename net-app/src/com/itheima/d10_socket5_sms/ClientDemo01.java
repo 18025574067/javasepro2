@@ -1,12 +1,14 @@
-package com.itheima.d8_socket3;
+package com.itheima.d10_socket5_sms;
 
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
 /**
-    目标：多发多收。
+    目标：客户端一发一收。
+
+    1. 客户端发送信息
+    2. 客户端可能随时可能需要收到消息的。
  */
 public class ClientDemo01 {
     public static void main(String[] args) {
@@ -15,6 +17,9 @@ public class ClientDemo01 {
             // 参数一：服务端的IP地址
             // 参数二：服务端的端口。
             Socket socket = new Socket("127.0.0.1", 7777);
+
+            // 创建一个独立的线程专门负责这个客户端的读信息，服务端随时可能发消息过来
+            new ClientReaderThread(socket);
 
             // 2. 从socket管道中得到一个字节输出流，负责发送数据。
             OutputStream os = socket.getOutputStream();
@@ -37,6 +42,30 @@ public class ClientDemo01 {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+}
+
+
+class ClientReaderThread extends Thread{
+    private Socket socket;
+    public ClientReaderThread(Socket socket){ this.socket = socket; }
+    @Override
+    public void run() {
+        try {
+            //  从socket通信管道中得到一个字节输入流
+            InputStream is = socket.getInputStream();
+
+            //  把字节输入流包装成缓冲字符输入流进行消息的接收
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            //  按照行读取
+            String msg;
+            while ((msg = br.readLine()) != null) {
+                System.out.println("收到消息：" + msg);
+            }
+        } catch (Exception e) {
+            System.out.println("服务端把你踹出来了～～～");
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.itheima.d9_socket4;
+package com.itheima.d8_socket3_thread;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -35,7 +35,6 @@ public class ClientDemo01 {
                 ps.println(msg);
                 ps.flush();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
