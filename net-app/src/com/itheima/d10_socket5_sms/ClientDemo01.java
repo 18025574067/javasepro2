@@ -5,10 +5,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
-    目标：客户端一发一收。
-
-    1. 客户端发送信息
-    2. 客户端可能随时可能需要收到消息的。
+    目标：多发多收。
  */
 public class ClientDemo01 {
     public static void main(String[] args) {
@@ -18,8 +15,8 @@ public class ClientDemo01 {
             // 参数二：服务端的端口。
             Socket socket = new Socket("127.0.0.1", 7777);
 
-            // 创建一个独立的线程专门负责这个客户端的读信息，服务端随时可能发消息过来
-            new ClientReaderThread(socket);
+            // 创建一个独立的线程专门负责这个客户端用于收消息，服务端随时发送消息过来
+            new ClientReaderThread(socket).start();
 
             // 2. 从socket管道中得到一个字节输出流，负责发送数据。
             OutputStream os = socket.getOutputStream();
@@ -46,10 +43,12 @@ public class ClientDemo01 {
     }
 }
 
-
 class ClientReaderThread extends Thread{
     private Socket socket;
-    public ClientReaderThread(Socket socket){ this.socket = socket; }
+
+    public ClientReaderThread(Socket socket){
+        this.socket = socket;
+    }
     @Override
     public void run() {
         try {
@@ -65,7 +64,7 @@ class ClientReaderThread extends Thread{
                 System.out.println("收到消息：" + msg);
             }
         } catch (Exception e) {
-            System.out.println("服务端把你踹出来了～～～");
+            System.out.println("服务端把我踢出来了！");
         }
     }
 }
