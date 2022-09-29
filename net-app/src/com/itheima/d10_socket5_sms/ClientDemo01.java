@@ -27,8 +27,7 @@ public class ClientDemo01 {
             // 4. 一直发送消息
             Scanner sc = new Scanner(System.in);
             while (true){
-                System.out.println("请讲：");
-                String msg = sc.nextLine();
+            String msg = sc.nextLine();
                 if ("exit".equals(msg)){
                     System.out.println("再见！");
                     ps.close();
