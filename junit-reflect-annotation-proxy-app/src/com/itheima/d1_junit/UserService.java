@@ -5,7 +5,7 @@ package com.itheima.d1_junit;
  */
 public class UserService {
     public String loginName(String loginName, String passWord){
-        if("admin".equals(loginName) && "123456".equals(passWord)){
+        if("admin2".equals(loginName) && "123456".equals(passWord)){
             return "登录成功";
         }else{
             return "用户名或者密码有问题";
