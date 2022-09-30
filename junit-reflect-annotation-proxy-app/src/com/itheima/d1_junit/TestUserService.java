@@ -1,12 +1,35 @@
 package com.itheima.d1_junit;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 
 /**
     测试类
  */
 public class TestUserService {
+
+    // 修饰实例方法的。
+    @Before
+    public void before(){
+        System.out.println("========befort方法执行一次=======");
+    }
+
+    @After
+    public void after(){
+        System.out.println("=============after方法执行一次================");
+    }
+
+    // 修饰静态方法的
+    @BeforeClass
+    public static void beforeClass(){
+        System.out.println("========befortClass方法执行一次=======");
+    }
+
+    @AfterClass
+    public static void afterClass(){
+        System.out.println("=============afterClass方法执行一次================");
+    }
+
+
     /**
         测试方法
         注意点：

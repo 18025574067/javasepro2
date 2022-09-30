@@ -13,7 +13,7 @@ public class UserService {
     }
 
     public void selectNames(){
-        System.out.println(10/0);
+        System.out.println(10/2);
         System.out.println("查询全部用户名称成功～～");
     }
 }
