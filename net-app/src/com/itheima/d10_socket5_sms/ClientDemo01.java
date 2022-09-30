@@ -19,14 +19,13 @@ public class ClientDemo01 {
             new ClientReaderThread(socket).start();
 
             // 2. 从socket管道中得到一个字节输出流，负责发送数据。
-            OutputStream os = socket.getOutputStream();
-
             // 3. 把低级的字节输出流包装成高级的打印流
-            PrintStream ps = new PrintStream(os);
+            PrintStream ps = new PrintStream(socket.getOutputStream());
 
             // 4. 一直发送消息
             Scanner sc = new Scanner(System.in);
             while (true){
+                System.out.println("请说：");
             String msg = sc.nextLine();
                 if ("exit".equals(msg)){
                     System.out.println("再见！");
