@@ -4,7 +4,7 @@ public class Student {
     private String name;
     private int age;
 
-    private Student() { System.out.println("无参数构造执行！");}
+    public Student() { System.out.println("无参数构造执行！");}
 
     private Student(String name, int age) {
         System.out.println("有参数构造器执行");
