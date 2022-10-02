@@ -6,7 +6,7 @@ public class Student {
 
     public Student() { System.out.println("无参数构造执行！");}
 
-    private Student(String name, int age) {
+    public Student(String name, int age) {
         System.out.println("有参数构造器执行");
         this.name = name;
         this.age = age;

@@ -41,11 +41,29 @@ public class TestStudent01 {
         }
     }   
 
-    // 3. getConstructor(Class...parameterTyes)
+    // 3. getConstructor(Class...parameterTypes)
     // 获取某个构造器，只能拿public修饰某个构造器
-    
+    @Test
+    public void getConstructor() throws Exception {
+        // a.第一步：获取类对象
+        Class c = Student.class;
+        // b.定位单个构造器对象（按照参数定位无参数构造器对象）
+        Constructor constructor = c.getConstructor();
+        System.out.println(constructor.getName() + "===>" + constructor.getParameterCount());
+    }
 
-    // 4. getDeclaredConstructor
+    // 4. getDeclaredConstructor(Class...parameterTypes)
     // 获取某个构造器，只要你敢写，这里就能拿到，无所谓权限是否可及。
+    @Test
+    public void getDeclaredConstructor() throws Exception {
+        // a.第一步：获取类对象
+        Class c = Student.class;
+        // b.定位单个构造器对象（按照参数定位无参数构造器对象）
+        Constructor constructor = c.getDeclaredConstructor();
+        System.out.println(constructor.getName() + "===>" + constructor.getParameterCount());
 
+        // b.定位单个构造器对象（按照参数定位有参数构造器对象）
+        Constructor constructor1 = c.getDeclaredConstructor(String.class, int.class);
+        System.out.println(constructor1.getName() + "===>" + constructor1.getParameterCount());
+    }
 }
