@@ -36,9 +36,4 @@ public class TestStudent02{
         Student s1 = (Student) constructor1.newInstance("孙悟空", 1000);
         System.out.println(s1);
     }
-
-    // 2. 调用有参数构造器得到一个类的对象返回。
-
-
 }
-
