@@ -3,6 +3,8 @@ package com.itheima.d4_reflect_field;
 public class Student {
     private String name;
     private int age;
+    public static String schoolName;
+    public static final String COUNTTRY = "中国";
 
     public Student() { System.out.println("无参数构造执行！");}
 
