@@ -1,4 +1,4 @@
-package com.itheima.d4_reflect_field;
+package com.itheima.d5_reflect_method;
 
 public class Student {
     private String name;
