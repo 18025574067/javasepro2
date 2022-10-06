@@ -20,12 +20,16 @@ public class FieldDemo02{
         Class c = Student.class;
         // b. 提取某个成员变量
         Field ageF = c.getDeclaredField("age");
-
-        Student zzj = new Student();
-        // zzj.setAge(1000);
         
+        ageF.setAccessible(true);  // 暴力打开权限。
+
         // c. 赋值
-        ageF.setAccessible(true);
-        ageF.set(zzj, 1000);
+        Student s = new Student();
+        ageF.set(s, 18); // s.setAge(18);
+        System.out.println(s);
+
+        // d. 取值
+        int age = (int)ageF.get(s);
+        System.out.println(age);
     }
 }
