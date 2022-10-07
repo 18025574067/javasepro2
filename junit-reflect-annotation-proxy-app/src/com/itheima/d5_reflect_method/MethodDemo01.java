@@ -2,6 +2,8 @@ package com.itheima.d5_reflect_method;
 
 import org.junit.Test;
 
+import java.lang.reflect.Method;
+
 /**
     反射获取类的Method方法对象：
         1. Method getMethod(String name, Class... args);
@@ -27,6 +29,11 @@ public class MethodDemo01 {
         // a. 获取类对象
         Class c = Dog.class;
         // b. 提取全部方法，包括私有的
+        Method[] methods = c.getDeclaredMethods();
+        // c. 遍历全部方法
+        for (Method method : methods){
+            System.out.println(method.getName() + "返回值类型：" + method.getReturnType() + "参数个数：" + method.getParameterCount());
+        }
 
     }
 
@@ -34,7 +41,20 @@ public class MethodDemo01 {
         2. 获取某个方法对象
      */
     @Test
-    public void getDeclardMethod() throws Exception {
-    
+    public void getDeclaredMethod() throws Exception {
+        // a. 获取类对象
+        Class c = Dog.class;
+        // b. 提取单个方法对象
+        Method m = c.getDeclaredMethod("eat");
+        Method m2 = c.getDeclaredMethod("eat", String.class);
+        m.setAccessible(true);
+        m2.setAccessible(true);
+        // c. 触发方法的执行
+        Dog d = new Dog();
+        // 注意：方法如果是没有返回结果回来的，那么返回的是null.
+        Object result = m.invoke(d);
+        System.out.println(result);
+        Object result2 = m2.invoke(d, "骨头");
+        System.out.println(result2);
     }
 }

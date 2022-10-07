@@ -20,7 +20,7 @@ public class Dog{
         return "吃的很开心";
     }
 
-    public static void inAddr(){ System.out.println("在黑马学习Java "); }
+    public static void inAddr(){ System.out.println("在黑马学习Java!"); }
 
     public String getName() { return name; }
 
