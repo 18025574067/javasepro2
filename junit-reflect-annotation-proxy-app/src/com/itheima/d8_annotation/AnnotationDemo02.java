@@ -1,5 +1,7 @@
 package com.itheima.d8_annotation;
 
+import org.junit.Test;
+
 /**
     目标：认识元注解
  */
@@ -9,6 +11,7 @@ public class AnnotationDemo02 {
     private String name;
 
     @MyTest
+    @Test
     public void test(){}
 
     public static void main(String[] args){}
