@@ -2,6 +2,8 @@ package com.itheima.d8_annotation;
 
 
 import org.junit.Test;
+
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -16,6 +18,7 @@ public class AnnotationDemo03 {
         // b. 判断这个类上面是否存在这个注解
         if(c.isAnnotationPresent(Bookk.class)){
             // c. 直接获取该注释对象
+//            Annotation book = c.getDeclaredAnnotation(Bookk.class);
             Bookk book = (Bookk) c.getDeclaredAnnotation(Bookk.class);
             System.out.println(book.value());
             System.out.println(book.price());
