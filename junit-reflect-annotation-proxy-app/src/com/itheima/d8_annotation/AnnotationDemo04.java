@@ -2,6 +2,9 @@ package com.itheima.d8_annotation;
 
 import java.lang.reflect.Method;
 
+/**
+    目标：模拟junit框架，跑注解。
+ */
 public class AnnotationDemo04 {
 
     public void test1(){
