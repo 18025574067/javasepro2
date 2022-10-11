@@ -15,21 +15,12 @@ public class StarAgentProxy {
             Class<?>[] interfaces, 对象实现的接口列表
             InvocationHandler h)
          */
-        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new InvocationHandler() {
+//            @Override
+//            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 return null;
-            }
-        });
+//            }
+//        });
     
     }
-
-
-
-
-
-
-
-
-
 }
