@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(int id){
         try{
-            System.out.println("根据用户的身份证号码：" + id + "，删除了他。。。");
+            System.out.println("根据用户的id：" + id + "，删除了他。。。");
             Thread.sleep(1200);
         } catch (Exception e) {
             e.printStackTrace();

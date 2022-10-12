@@ -11,6 +11,10 @@
     <sql>
         select * from user where age &lt; 18;
         select * from user where age &lt; 18 &amp;&amp; age > 10;
+        <![CDATA[
+            select * from user where age < 18;
+
+        ]]>
     </sql>
 </student>
 
