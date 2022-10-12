@@ -44,4 +44,14 @@ public class UserServiceImpl implements UserService {
 //        System.out.println("selectUsers方法耗时：" + (endTime - startTime) / 1000.0 + "s");
         return rs;
     }
+
+    @Override
+    public void deleteById(int id){
+        try{
+            System.out.println("根据用户的身份证号码：" + id + "，删除了他。。。");
+            Thread.sleep(1200);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

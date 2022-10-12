@@ -7,6 +7,5 @@ public class Test {
         System.out.println(userService.login("admin", "123456"));
         System.out.println(userService.selectUsers());
         userService.deleteUsers();
-    
-    }
+        userService.deleteById(6);    }
 }
