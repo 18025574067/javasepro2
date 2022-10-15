@@ -28,8 +28,8 @@ public class Dom4JTest02 {
         for (Element contactEle : contactEles) {
             // 8.每个子元素都是一个联系人对象
             Contact contact = new Contact();
-            contact.setId(Integer.valueOf(contactEle.attributeValue("id")));
-            contact.setVip(Boolean.valueOf(contactEle.attributeValue("vip")));
+            contact.setId(Integer.parseInt(contactEle.attributeValue("id")));
+            contact.setVip(Boolean.parseBoolean(contactEle.attributeValue("vip")));
             contact.setName(contactEle.elementTextTrim("name"));
             contact.setGender(contactEle.elementTextTrim("gender").charAt(0));
             contact.setEmail(contactEle.elementText("email"));
