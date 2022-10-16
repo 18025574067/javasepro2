@@ -1,8 +1,12 @@
 package com.itheima.d2_xpath;
 
 import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
+
+import java.util.List;
 
 public class XPathDemo {
     /**
@@ -14,6 +18,12 @@ public class XPathDemo {
         SAXReader saxReader = new SAXReader();
         // b. 把XML加载成Document文档对象。
         Document document = saxReader.read(XPathDemo.class.getResourceAsStream("/Contacts2.xml"));
+        // c. 检索全部的名称
+        List<Node> nameNades = document.selectNodes("/contactList/contact/name");
+        for (Node nameNade : nameNades) {
+            Element nameEle = (Element) nameNade;
+            System.out.println(nameEle.getTextTrim());
+        }
     }
 
     /**
