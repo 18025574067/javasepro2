@@ -1,5 +1,7 @@
 package com.itheima.d2_xpath;
 
+import org.dom4j.Document;
+import org.dom4j.io.SAXReader;
 import org.junit.Test;
 
 public class XPathDemo {
@@ -7,7 +9,12 @@ public class XPathDemo {
     1. 绝对路径：/根元素/子元素/子元素
     */
     @Test
-    public void parse01() throws Exception {}
+    public void parse01() throws Exception {
+        // a. 创建解析器对象
+        SAXReader saxReader = new SAXReader();
+        // b. 把XML加载成Document文档对象。
+        Document document = saxReader.read(XPathDemo.class.getResourceAsStream("/Contacts2.xml"));
+    }
 
     /**
      2.相对路径： ./子元素/子元素。（.代表了当前元素）
