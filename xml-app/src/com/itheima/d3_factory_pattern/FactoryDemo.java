@@ -10,9 +10,17 @@ package com.itheima.d3_factory_pattern;
  */
 public class FactoryDemo {
     public static void main(String[] args){
+        // 用户自己创建对象，不合逻辑。
 //        Computer c = new Mac();
 //        c.setName("MacBook pro");
 //        c.setPrice(9999);
 //        c.start();
+
+        //  工厂模式创建对象。
+        Computer c1 = FactoryPattern.createComputer("huawei");
+        c1.start();
+
+        Computer c2 = FactoryPattern.createComputer("mac");
+        c2.start();
     }
 }
